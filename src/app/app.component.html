@@ -1,6 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<h1>Welcome My Website</h1>
+<canvas id="tab-canvas">不支持 Canvas</canvas>
+<tab-clone #tab [menus]="['首页','案例','关于我们','联系我们']" (viewData)="viewData($event)"></tab-clone>
 
 
 <router-outlet></router-outlet>
