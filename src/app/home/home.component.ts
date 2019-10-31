@@ -2,6 +2,7 @@ import { Component , OnInit } from "@angular/core";
 import Konva from 'konva';
 
 import { SystemInfo } from "../service/systemInfo.service";
+import { NewsRect } from "./mouse";
 
 
 @Component({
@@ -31,29 +32,26 @@ export class Home implements OnInit{
         // add canvas element
         var layer = new Konva.Layer();
 
-
         for( let i = 0; i < this.menuText.length; i ++ ){
             var groupPage = new Konva.Group({
                 x: 0,
-                y: 90,
-                zIndex:this.menuText.length + 1 - i
+                y: 90
             });
             let box = new Konva.Rect({
                 x : i* SystemInfo.width ,
                 y : 0 ,
                 width : SystemInfo.width ,
-                height : SystemInfo.height - 40 ,
-                fill : this.pageBg[i]
+                height : SystemInfo.height - 40
+                //fill : this.pageBg[i]
             });
-            let contentText = new Konva.Text({
-                x : 5 + i * SystemInfo.width ,
-                y : 10 ,
-                text : `page${i} show` ,
-                fontSize : 50 ,
-                fill : "#fff"
-            });
-            groupPage.add( box ).add(contentText);
-            //groupPage.add( contentText );
+            // let contentText = new Konva.Text({
+            //     x : 5 + i * SystemInfo.width ,
+            //     y : 10 ,
+            //     text : `page${i} show` ,
+            //     fontSize : 50 ,
+            //     fill : "#fff"
+            // });
+            groupPage.add( box );
             let t = new Konva.Text({
                 x: SystemInfo.width / 2 - 150,
                 y: SystemInfo.height / 2 - 15,
@@ -69,7 +67,7 @@ export class Home implements OnInit{
                 page : groupPage
             });
             let subTitle = new Konva.Text({
-                x :  i * 300,
+                x :  i * 200,
                 y : 70 ,
                 text: this.menuText[i].subTitle ,
                 align : "center" ,
@@ -79,14 +77,12 @@ export class Home implements OnInit{
                 opacity : 0
             });
 
-            layer.add( subTitle );
-            layer.add( groupPage );
-            layer.add( t );
+            layer.add( subTitle ).add( groupPage ).add( t );
 
             let textRun = new Konva.Tween({
                 node : t ,
                 duration: 1.5 ,
-                x : i * 300 ,
+                x : i * 200 ,
                 y: 10 ,
                 easing:Konva.Easings.BackEaseOut ,
                 opacity: 1 ,
@@ -99,9 +95,25 @@ export class Home implements OnInit{
                     t.on("mouseout", () => this.mouseleave( t ) );
                 }
             });
-
             textRun.play();
+        };
+
+        let newList = [
+            { text : "写在民营企业座谈会召开一周年之际"} ,
+            { text : "桌布论坛 让高中生和科学家零距离"} ,
+            { text : "市场下沉，消费增添新活力"}
+        ];
+        for( let i = 0; i < newList.length; i ++ ) {
+            let news = NewsRect({
+                x : 60 ,
+                y : 130 + i * 31 ,
+                data : {
+                    text : newList[i].text
+                }
+            });
+            layer.add( news );
         }
+
         layer.draw();
         stage.add( layer );
 
@@ -109,7 +121,7 @@ export class Home implements OnInit{
     }
     mousehover( t ){
         //var tl = new TimelineLite();
-        let { page , y , index } = t.attrs;t
+        let { page , y , index } = t.attrs;
         let textRun = new Konva.Tween({
             node : t ,
             duration: .5 ,
@@ -138,7 +150,7 @@ export class Home implements OnInit{
         if( index != 0 ){
             page.to({
                 x : 1 * SystemInfo.width ,
-                duration : .5 ,
+                duration : 1 ,
                 easing:Konva.Easings.BackEaseOut ,
                 opacity : 0
             });
