@@ -96,9 +96,9 @@ export class Home implements OnInit{
     }
     mousehover( t ){
         //var tl = new TimelineLite();
-        let { page , y , index } = t.attrs;
+        let { page , y , index } = t.attrs;t
         let textRun = new Konva.Tween({
-            node : this ,
+            node : t ,
             duration: .5 ,
             y : y - 5 ,
             easing:Konva.Easings.BackEaseOut ,
@@ -116,7 +116,7 @@ export class Home implements OnInit{
     mouseleave( t ){
         let { page , y , index } = t.attrs;
         let textRun = new Konva.Tween({
-            node : this ,
+            node : t ,
             duration: .5 ,
             y : y + 5 ,
             easing:Konva.Easings.BackEaseOut ,
