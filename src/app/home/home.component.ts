@@ -13,10 +13,10 @@ import { SystemInfo } from "../service/systemInfo.service";
 
 export class Home implements OnInit{
     private menuText:Array<any> = [
-        { title : "首页" , index : 0 } ,
-        { title : "需求" , index : 1 } ,
-        { title : "案例", index : 2 } ,
-        { title : "关于" , index : 3 }
+        { title : "首页" , index : 0, subTitle : "home" } ,
+        { title : "需求" , index : 1, subTitle : "demand" } ,
+        { title : "案例" , index : 2, subTitle : "case" } ,
+        { title : "关于" , index : 3, subTitle : "about" }
     ];
     private pageBg:Array<string> = ["#5FB878","#393D49","#1E9FFF","#FF5722"];
     constructor(){
@@ -33,7 +33,7 @@ export class Home implements OnInit{
 
 
         for( let i = 0; i < this.menuText.length; i ++ ){
-            var group = new Konva.Group({
+            var groupPage = new Konva.Group({
                 x: 0,
                 y: 90,
                 zIndex:this.menuText.length + 1 - i
@@ -52,8 +52,8 @@ export class Home implements OnInit{
                 fontSize : 50 ,
                 fill : "#fff"
             });
-            group.add( box );
-            group.add( contentText );
+            groupPage.add( box ).add(contentText);
+            //groupPage.add( contentText );
             let t = new Konva.Text({
                 x: SystemInfo.width / 2 - 150,
                 y: SystemInfo.height / 2 - 15,
@@ -61,27 +61,40 @@ export class Home implements OnInit{
                 fontSize: 30,
                 fontFamily: "Calibri",
                 stroke: "#fff" ,
-                width: 300 ,
+                width: 200 ,
                 padding: 20 ,
                 align: "center" ,
                 opacity : 0 ,
                 index : i ,
-                page : group
+                page : groupPage
+            });
+            let subTitle = new Konva.Text({
+                x :  i * 300,
+                y : 70 ,
+                text: this.menuText[i].subTitle ,
+                align : "center" ,
+                fontSize : 18 ,
+                width : 200 ,
+                fill : "#fff" ,
+                opacity : 0
             });
 
-
-
-            layer.add( group );
+            layer.add( subTitle );
+            layer.add( groupPage );
             layer.add( t );
 
             let textRun = new Konva.Tween({
                 node : t ,
                 duration: 1.5 ,
-                x : 50 + i * 300 ,
+                x : i * 300 ,
                 y: 10 ,
                 easing:Konva.Easings.BackEaseOut ,
                 opacity: 1 ,
                 onFinish : () => {
+                    subTitle.to({
+                        opacity : 1 ,
+                        duration : .5
+                    });
                     t.on("mouseover", () => this.mousehover( t )  );
                     t.on("mouseout", () => this.mouseleave( t ) );
                 }
@@ -89,9 +102,9 @@ export class Home implements OnInit{
 
             textRun.play();
         }
-
-        stage.add( layer );
         layer.draw();
+        stage.add( layer );
+
 
     }
     mousehover( t ){
