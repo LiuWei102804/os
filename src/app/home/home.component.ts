@@ -98,21 +98,21 @@ export class Home implements OnInit{
             textRun.play();
         };
 
-        let newList = [
-            { text : "写在民营企业座谈会召开一周年之际"} ,
-            { text : "桌布论坛 让高中生和科学家零距离"} ,
-            { text : "市场下沉，消费增添新活力"}
-        ];
-        for( let i = 0; i < newList.length; i ++ ) {
-            let news = NewsRect({
-                x : 60 ,
-                y : 130 + i * 31 ,
-                data : {
-                    text : newList[i].text
-                }
-            });
-            layer.add( news );
-        }
+        let BannerNews = {
+            title : "NEWS" ,
+            x : 60 ,
+            y : 130 ,
+            data : {
+                list : [
+                    { text : "写在民营企业座谈会召开一周年之际"} ,
+                    { text : "桌布论坛 让高中生和科学家零距离"} ,
+                    { text : "市场下沉，消费增添新活力"}
+                ]
+            }
+        };
+
+            layer.add( NewsRect( BannerNews ) );
+
 
         layer.draw();
         stage.add( layer );
