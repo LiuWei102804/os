@@ -5,7 +5,6 @@ export class Ball{
     public birthY:number;
     public targetX:number;
     public targetY:number;
-    public opacity:number;
     public stop:boolean = false;
 
     constructor( options ){
@@ -15,7 +14,6 @@ export class Ball{
         this.birthY = options.birthY;
         this.targetX = options.targetX;
         this.targetY = options.targetY;
-        this.opacity = options.opacity;
 
     }
     move( ctx ){
@@ -24,7 +22,6 @@ export class Ball{
             if( this.birthX == this.targetX ) {
                 cancelAnimationFrame( frameId );
             } else {
-
                 sx = ( this.targetX - this.birthX ) / 15;
                 sx = sx > 0 ? Math.ceil( sx ) : Math.floor( sx );
                 sy = ( this.targetY - this.birthY ) / 15;
