@@ -1,6 +1,10 @@
 import { Component , ElementRef , OnInit, ViewChild } from '@angular/core';
 import { Router , NavigationEnd } from "@angular/router";
 import { ANIMATIONS } from "./animation";
+import { SystemInfo } from "./service/systemInfo.service";
+import Konva from "konva";
+import { star, moon } from "./knova/star";
+
 
 @Component({
     selector: 'app-root',
@@ -12,9 +16,9 @@ export class AppComponent implements OnInit {
     private tabCanvas:HTMLCanvasElement;
     private context = null;
     private balls:Array<any> = [];
-    private animateState:string;
+    public animateState:string;
     routerState:boolean = true;
-
+    private starNum:number = 400;
     constructor(private el: ElementRef, private router:Router){
         this.router.events.subscribe(event => {
             if( event instanceof NavigationEnd ) {
@@ -25,6 +29,34 @@ export class AppComponent implements OnInit {
         })
     }
     ngOnInit(){
+        let stage = new Konva.Stage({
+            container: "container",
+            width: window.innerWidth,
+            height: window.screen.availHeight
+        });
+        let layer = new Konva.Layer();
+        for( let i = 0; i < this.starNum; i ++ ) {
+            let s = star();
+            let radius = s.getAttr("radius");
+            let shadowBlur = s.getAttr("shadowBlur");
+            layer.add( s );
+            // let tween = new Konva.Tween({
+            //     node : s ,
+            //     easing : Konva.Easings.EaseIn ,
+            //     duration : 1 + Math.random() * 2 ,
+            //     shadowBlur : shadowBlur - radius >= 10 ? radius : shadowBlur ,
+            //     yoyo : true
+            // });
+            // tween.play();
+        }
+        layer.add( moon() );
+
+        layer.draw();
+        //
+
+        stage.add( layer );
+
+
         // this.tabCanvas = this.el.nativeElement.querySelector("#tab-canvas");
         // this.tabCanvas.width = window.screen.width * .6;
         // this.tabCanvas.height = 90;

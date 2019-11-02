@@ -7,15 +7,22 @@ import { AppComponent } from './app.component';
 
 import { ElModule } from 'element-angular';
 
-import { NavComponent } from "./template/nav/nav.component";
+
 import { Home } from "./home/home.component";
-import {TabClone} from "../TabClone/TabClone";
+import { NavComponent } from "./nav/nav.component";
+import { NewsComponent } from "./news/news.component";
+import { DemandComponent } from "./demand/demand.component";
+import { AboutComponent } from "./about/about.component";
+import { TabClone } from "../TabClone/TabClone";
 
 @NgModule({
   declarations: [
       AppComponent ,
-      NavComponent ,
       Home ,
+      NavComponent ,
+      NewsComponent ,
+      DemandComponent ,
+      AboutComponent ,
       TabClone
   ],
   imports: [

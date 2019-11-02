@@ -1,1 +1,4 @@
-#container{ background: #000; }
+section{ width: 90%; height: auto; margin: 80px auto; overflow: hidden; }
+.info{ width: 100%; height: auto; text-align: center; color: #fff; background: rgba(29,171,235,.6); padding: 40px 30px; margin: 10px 0;  border-radius: 5px; }
+.info h2{ margin-bottom: 20px; }
+.info p{ line-height: 28px; }

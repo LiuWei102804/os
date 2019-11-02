@@ -1,10 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<!--<tab-clone #tab [menus]="['首页','案例','关于我们','联系我们']" (viewData)="viewData($event)"></tab-clone>-->
-
 <!--  [@slide]="animateState" -->
 <div id="app">
-    <router-outlet></router-outlet>
+    <div id="container"></div>
+    <div id="content" [@slide]="animateState">
+        <app-nav></app-nav>
+        <router-outlet></router-outlet>
+    </div>
 </div>
 
 

@@ -1,0 +1,9 @@
+section{width: 90%; height: auto; margin: 80px auto; background: rgba(29,171,235,.6); border-radius: 5px; padding: 40px 30px; }
+section ul{ width: 90%; height: auto; background: transparent; }
+section ul li{ width: 100%; padding: 5px 10%; height: 120px; overflow: hidden; box-sizing: border-box; margin-bottom: 10px; }
+section ul li img{ width:20%; float: left; }
+section ul li div{ float: left; width: calc( 80% - 10px); margin-left: 10px; background: transparent; color: #fff; height:106px; }
+section ul li div p.title{ font-size: 18px; line-height: 24px;}
+section ul li div p.content{ font-size: 14px; line-height: 16px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 4;  -webkit-box-orient: vertical; }
+section ul li div p.info{ font-size: 12px; line-height: 30px; }
+section ul li div p.info time{ margin-left: 30px;}

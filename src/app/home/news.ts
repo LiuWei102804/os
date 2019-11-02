@@ -11,7 +11,8 @@ interface Data{
 export const NewsRect = ( data:Data ) => {
     let group = new Konva.Group({
         x : data.x ,
-        y : data.y
+        y : data.y ,
+        draggable : true
     });
     let banner = new Konva.Rect({
         x : 0 ,
@@ -28,13 +29,21 @@ export const NewsRect = ( data:Data ) => {
         text : data.title,
         width : 300
     });
+    banner.rotation(45);
 
+    // bannerText.cache();
+    // bannerText.filters([Konva.Filters.Blur]);
+    // bannerText.blurRadius(15);
+    // console.log( bannerText.blurRadius() )
+
+    //group.clear();
+
+    //console.log( bannerText.getAttr("x") );
     group.add( banner ).add( bannerText );
     for( let i = 0; i < data.data.list.length; i++ ) {
         let newGroup = new Konva.Group({
             x : 0 ,
-            y : 100 + i * 30 ,
-            opacity : 0
+            y : 50 + i * 31
         });
         let rect = new Konva.Rect({
             x : 0 ,
@@ -58,14 +67,14 @@ export const NewsRect = ( data:Data ) => {
             fontSize:16 ,
             width :300
         });
-        newGroup.add(rect).add( line ).add( text );
+        newGroup.add( rect ).add( line ).add( text );
 
-        newGroup.to({
-            x : 0 ,
-            y : 50 + i * 31 ,
-            duration : .8 ,
-            opacity: 1
-        })
+        // newGroup.to({
+        //     x : 0 ,
+        //     y : 50 + i * 31 ,
+        //     duration : .8 ,
+        //     opacity: 1
+        // });
         group.add( newGroup );
     }
 

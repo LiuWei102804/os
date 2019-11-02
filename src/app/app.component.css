@@ -1,1 +1,3 @@
 #app{ position: absolute; }
+#container{ background-image: linear-gradient(to bottom,rgba(3,45,88,1) 5%,rgb(13,97,154) 100%); position: absolute; left: 0; top:0; }
+#content{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
