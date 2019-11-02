@@ -1,5 +1,5 @@
 import Konva from "konva";
-import { SystemInfo } from "../service/systemInfo.service";
+import { SystemInfo } from "./service/systemInfo.service";
 
 
 export const star = () => {

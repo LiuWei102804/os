@@ -3,7 +3,7 @@ import { Router , NavigationEnd } from "@angular/router";
 import { ANIMATIONS } from "./animation";
 import { SystemInfo } from "./service/systemInfo.service";
 import Konva from "konva";
-import { star, moon } from "./knova/star";
+import { star, moon } from "./konva";
 
 
 @Component({
