@@ -31,7 +31,6 @@ export const moon = () => {
             gradient.addColorStop(0.3, 'rgba(101,111,179,.4)');
             gradient.addColorStop(0.5, 'rgba(85,95,172,.2)');
             gradient.addColorStop(1, 'rgba(15,78,127,0)');
-            console.log( context );
             context._context.fillStyle = gradient;
             context.fillRect(0, 0, 300, 300);
 
