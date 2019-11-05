@@ -13,6 +13,7 @@ import { NavComponent } from "./nav/nav.component";
 import { NewsComponent } from "./news/news.component";
 import { DemandComponent } from "./demand/demand.component";
 import { AboutComponent } from "./about/about.component";
+import { DemoComponent } from "./demo/demo.component";
 import { TabClone } from "../TabClone/TabClone";
 
 @NgModule({
@@ -23,6 +24,7 @@ import { TabClone } from "../TabClone/TabClone";
       NewsComponent ,
       DemandComponent ,
       AboutComponent ,
+      DemoComponent ,
       TabClone
   ],
   imports: [

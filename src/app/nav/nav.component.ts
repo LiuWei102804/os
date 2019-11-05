@@ -8,10 +8,11 @@ import {Component, OnInit } from "@angular/core";
 
 export class NavComponent implements OnInit{
     public menus:Array<any> = [
-        { title : "首页" , active : true , url : "/" } ,
-        { title : "需求"  , active : false, url : "/demand" } ,
-        { title : "小知识" , active : false , url : "/news" } ,
-        { title : "关于"  , active : false , url : "/about" }
+        { title : "首页" , url : "/" } ,
+        { title : "案例" , url : "/demo" } ,
+        { title : "需求"  , url : "/demand" } ,
+        { title : "小知识" , url : "/news" } 
+        //{ title : "关于"  , url : "/about" }
     ];
     constructor(){
 
