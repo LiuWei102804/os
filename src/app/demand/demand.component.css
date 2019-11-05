@@ -1,6 +1,9 @@
-.demand{
-    width: 90%; height: auto; margin: 80px auto; background: rgba(29,171,235,.6); border-radius: 5px; padding: 40px 30px;
-}
+.pageName{ color: #fff; margin: 15px 0; padding-left: 15px; position: relative; }
+.pageName:before{ content: ""; display: block; width: 5px; height: 70%; background: #fff; position: absolute; left: 0; top:15%; }
+.pageName small{ font-size: 14px; font-weight: normal; margin-left: 15px; cursor: pointer; }
+/*.demand{*/
+    /*width: 100%; height: auto; margin: 80px 0; background: rgba(29,171,235,.6); border-radius: 5px; padding: 40px 30px;*/
+/*}*/
 .link{ width: 100%; height: auto; padding: 0 30%; color: #fff; }
 .link label{ display: block;  margin: 3% 0; overflow: hidden;}
 .link label span{ display: block; float: left; width: 18%; line-height: 30px; text-align: left;}

@@ -1,4 +1,4 @@
-import { Component , ElementRef , OnInit, ViewChild } from '@angular/core';
+import { Component , ElementRef , OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Router , NavigationEnd } from "@angular/router";
 import { ANIMATIONS } from "./animation";
 import { SystemInfo } from "./service/systemInfo.service";
@@ -12,7 +12,7 @@ import { star, moon } from "./konva";
     styleUrls: ['./app.component.css'] ,
     animations:[ANIMATIONS]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
     private tabCanvas:HTMLCanvasElement;
     private context = null;
     private balls:Array<any> = [];
@@ -28,12 +28,16 @@ export class AppComponent implements OnInit {
             }
         })
     }
+    ngAfterViewInit(){
+
+    }
     ngOnInit(){
         let stage = new Konva.Stage({
             container: "container",
             width: window.innerWidth,
-            height: window.screen.availHeight
+            height: window.innerHeight
         });
+
         let layer = new Konva.Layer();
         for( let i = 0; i < this.starNum; i ++ ) {
             let s = star();

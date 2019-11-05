@@ -11,7 +11,7 @@ export class NavComponent implements OnInit{
         { title : "首页" , url : "/" } ,
         { title : "案例" , url : "/demo" } ,
         { title : "需求"  , url : "/demand" } ,
-        { title : "小知识" , url : "/news" } 
+        { title : "小知识" , url : "/news" }
         //{ title : "关于"  , url : "/about" }
     ];
     constructor(){

@@ -1,12 +1,11 @@
 import { Component , OnInit } from "@angular/core";
-
-
+import { Router } from "@angular/router";
 
 
 @Component({
     selector:"app-home" ,
     templateUrl:"home.component.html",
-    styleUrls:["home.component.css","../demand/demand.component.css"]
+    styleUrls:["home.component.css","../demo/demo.component.css","../news/news.component.css","../demand/demand.component.css"]
 })
 
 
@@ -19,8 +18,11 @@ export class Home implements OnInit{
     ];
     private pageBg:Array<string> = ["#5FB878","#393D49","#1E9FFF","#FF5722"];
     private starNum:number = 400;
-    constructor(){
+    constructor(private router:Router){
 
+    }
+    linkTo(path:string){
+        this.router.navigate( [path] );
     }
     ngOnInit(){
 
