@@ -19,10 +19,10 @@ export class Home implements OnInit{
     ];
     private starNum:number = 400;
 
-    private nick_name:string = "";
-    private contact:string = "";
-    private remarks:string = "";
-    private loading:boolean = false;
+    public nick_name:string = "";
+    public contact:string = "";
+    public remarks:string = "";
+    public loading:boolean = false;
     constructor(private router:Router, private api: ApiServer, private message: ElMessageService, private el: ElementRef){
 
     }
