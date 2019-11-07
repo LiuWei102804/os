@@ -1,0 +1,9 @@
+{
+  "/register":{
+    "target":"http://127.0.0.1:9001",
+    "secure":false,
+    "logLevel":"debug",
+    "changeOrigin":true
+
+  }
+}

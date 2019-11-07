@@ -40,17 +40,18 @@
             <h3>请留下您的联系方式，方便我们联系您</h3>
             <label>
                 <span><i class="fa fa-user"></i>&nbsp;姓名</span>
-                <input type="text" placeholder="您的姓名" />
+                <input type="text" placeholder="您的姓名" [(ngModel)]="nick_name" />
             </label>
             <label>
                 <span><i class="fa fa-phone"></i>&nbsp;电话</span>
-                <input type="tel" placeholder="您的联系方式" />
+                <input type="tel" placeholder="您的联系方式" [(ngModel)]="contact" id="contact" />
             </label>
             <label>
                 <span><i class="fa fa-file-word-o"></i>&nbsp;需求简述</span>
-                <textarea placeholder="简要描述"></textarea>
+                <textarea placeholder="简要描述" [(ngModel)]="remarks"></textarea>
             </label>
-            <button>提交</button>
+            <button (click)="submit()">提交</button>
         </div>
     </div>
+    <div [el-loading]="loading" [full-screen]="false" [lock]="true" text="加载中"></div>
 </section>

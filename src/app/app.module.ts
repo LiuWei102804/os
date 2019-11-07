@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ElModule } from 'element-angular';
 
+import { ApiServer } from "./apis/api.server";
 
 import { Home } from "./home/home.component";
 import { NavComponent } from "./nav/nav.component";
@@ -31,9 +33,10 @@ import { TabClone } from "../TabClone/TabClone";
       BrowserModule,
       AppRoutingModule,
       BrowserAnimationsModule,
+      FormsModule ,
       ElModule.forRoot()
   ],
-  providers: [],
+  providers: [ApiServer],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

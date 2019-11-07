@@ -1,6 +1,7 @@
-import { Component , OnInit } from "@angular/core";
+import { Component , OnInit ,ElementRef } from "@angular/core";
 import { Router } from "@angular/router";
-
+import { ApiServer} from "../apis/api.server";
+import { ElMessageService } from "element-angular";
 
 @Component({
     selector:"app-home" ,
@@ -16,15 +17,41 @@ export class Home implements OnInit{
         { title : "案例" , index : 2, subTitle : "case" } ,
         { title : "关于" , index : 3, subTitle : "about" }
     ];
-    private pageBg:Array<string> = ["#5FB878","#393D49","#1E9FFF","#FF5722"];
     private starNum:number = 400;
-    constructor(private router:Router){
+
+    private nick_name:string = "";
+    private contact:string = "";
+    private remarks:string = "";
+    private loading:boolean = false;
+    constructor(private router:Router, private api: ApiServer, private message: ElMessageService, private el: ElementRef){
 
     }
     linkTo(path:string){
         this.router.navigate( [path] );
     }
+    submit(){
+        this.loading = true;
+        let data = {
+            nick_name : this.nick_name ,
+            contact : this.contact ,
+            remarks : this.remarks
+        };
+        this.api.subscribe( data ).then(res => {
+            this.loading = false;
+            switch ( res.code ) {
+                case 200 :
+                    this.message.success("提交成功");
+                    break;
+                default :
+                    this.message.error( res.msg );
+                    this.el.nativeElement.querySelector("#contact").focus();
+            }
+        }, err => {
+            this.loading = false;
+        })
+    }
     ngOnInit(){
+
 
 
 
