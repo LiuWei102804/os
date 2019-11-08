@@ -1,9 +1,11 @@
 import { Component , ElementRef , OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { Router , NavigationEnd } from "@angular/router";
+import { Router , NavigationEnd ,NavigationStart, ActivatedRoute } from "@angular/router";
 import { ANIMATIONS } from "./animation";
 import { SystemInfo } from "./service/systemInfo.service";
 import Konva from "konva";
 import { star, moon } from "./konva";
+import { SystemServer } from "./server/system.server";
+import { Location, PlatformLocation } from "@angular/common";
 
 
 @Component({
@@ -19,8 +21,14 @@ export class AppComponent implements OnInit, AfterViewInit {
     public animateState:string;
     routerState:boolean = true;
     private starNum:number = 400;
-    constructor(private el: ElementRef, private router:Router){
+    constructor(private el: ElementRef, private router:Router, private active: ActivatedRoute, private pl: PlatformLocation){
         this.router.events.subscribe(event => {
+            // if( event instanceof NavigationStart ) {
+            //     if( SystemServer.isPhone() && this.pl.location.pathname.indexOf("/mobile") == -1 ) {
+            //         console.log( this.router )
+            //
+            //     }
+            // }
             if( event instanceof NavigationEnd ) {
                 //this.animateState= "out";
                 this.routerState = !this.routerState;
@@ -56,7 +64,6 @@ export class AppComponent implements OnInit, AfterViewInit {
         layer.add( moon() );
 
         layer.draw();
-        //
 
         stage.add( layer );
 

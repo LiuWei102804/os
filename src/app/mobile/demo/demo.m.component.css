@@ -1,0 +1,9 @@
+.pageName{ color: #fff; margin: .3rem 0; padding-left: .5rem; position: relative; text-align: left; }
+.pageName:before{ content: ""; display: block; width: .2rem; height: 70%; background: #fff; position: absolute; left: 0; top:15%; }
+.pageName small{ font-size: 14px; font-weight: normal; margin-left: 15px; cursor: pointer; }
+.demos{ width: 100%; height: auto; overflow: hidden; text-align: left;}
+.demos li{ }
+.demos li div{ width: 100%; overflow: hidden; color: #fff; }
+.demos li div h3{ margin: .15rem 0; }
+.demos li div img{ width:100%; margin-bottom: .15rem; margin-right: 2%; }
+.demos li div img:last-child{ margin-right: 0; }

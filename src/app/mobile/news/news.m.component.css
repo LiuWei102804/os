@@ -1,0 +1,11 @@
+.pageName{ color: #fff; margin: .3rem 0; padding-left: .5rem; position: relative; text-align: left; }
+.pageName:before{ content: ""; display: block; width: 5px; height: 70%; background: #fff; position: absolute; left: 0; top:15%; }
+.pageName small{ font-size: 14px; font-weight: normal; margin-left: 15px; cursor: pointer; }
+.news-list{ width: 100%; height: auto; background: transparent; text-align: left; }
+.news-list li{ width: 100%; padding: .1rem 0%; height: 2.4rem; overflow: hidden; box-sizing: border-box; margin-bottom: 10px; }
+.news-list li img{ width:30%; display: block; float: left; }
+.news-list li div{ width: calc( 70% - .1rem); margin-left: .1rem; float: left; background: transparent; color: #fff; height:2.4rem; }
+.news-list li div p.title{ font-size: .45rem; line-height: .45rem; font-weight: bold; height: .45rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.news-list li div p.content{ font-size: .35rem; line-height: .4rem; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2;  -webkit-box-orient: vertical; }
+.news-list li div p.info{ font-size: .35rem; line-height: .6rem; }
+.news-list li div p.info time{ float: right;}

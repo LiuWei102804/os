@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { Home } from "./home/home.component";
-import { NewsComponent } from "./news/news.component";
-import { DemandComponent } from "./demand/demand.component";
-import { AboutComponent } from "./about/about.component";
-import { DemoComponent } from "./demo/demo.component";
+import { AuthGuard } from "./server/auth.guard";
 
 const routes: Routes = [
-    { path : "" , component : Home } ,
-    { path : "demo" , component: DemoComponent } ,
-    { path : "news" , component : NewsComponent  } ,
-    { path : "demand" , component : DemandComponent  } ,
-    { path : "about" , component : AboutComponent  } ,
+    {
+        path : "" ,
+        loadChildren : () => import("./pc/pc.module").then(mod => mod.PcModule) ,
+        canActivate : [AuthGuard] ,
+
+    } ,
+    {
+        path : "mobile" ,
+        loadChildren : () => import("./mobile/mobile.module").then(mod => mod.MobileModule)
+    } ,
     { path : "**", redirectTo : "/", pathMatch:'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{enableTracing: false})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
