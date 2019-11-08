@@ -5,6 +5,7 @@ import { HomeMComponent } from "./home/home.m.component";
 import { DemoMComponent } from "./demo/demo.m.component";
 import { NewsMComponent } from "./news/news.m.component";
 import { DemandMComponent } from "./demand/demand.m.component";
+import { PcMComponent } from "./pc/pc.m.component";
 
 const routes: Routes = [
     {
@@ -26,6 +27,10 @@ const routes: Routes = [
             {
                 path : "demand" ,
                 component : DemandMComponent
+            } ,
+            {
+                path : "pc" ,
+                component : PcMComponent
             }
         ]
     }

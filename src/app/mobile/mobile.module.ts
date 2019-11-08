@@ -11,6 +11,7 @@ import { HomeMComponent } from "./home/home.m.component";
 import { DemoMComponent } from "./demo/demo.m.component";
 import { NewsMComponent } from "./news/news.m.component";
 import { DemandMComponent } from "./demand/demand.m.component";
+import { PcMComponent } from "./pc/pc.m.component";
 
 @NgModule({
     imports:[
@@ -26,7 +27,8 @@ import { DemandMComponent } from "./demand/demand.m.component";
         HomeMComponent ,
         DemoMComponent ,
         NewsMComponent ,
-        DemandMComponent
+        DemandMComponent ,
+        PcMComponent
     ],
     bootstrap:[MobileComponent]
 })

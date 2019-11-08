@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from "./server/auth.guard";
+import { AuthMGuard } from "./server/auth.m.guard";
+
 
 const routes: Routes = [
     {
@@ -11,7 +13,8 @@ const routes: Routes = [
     } ,
     {
         path : "mobile" ,
-        loadChildren : () => import("./mobile/mobile.module").then(mod => mod.MobileModule)
+        loadChildren : () => import("./mobile/mobile.module").then(mod => mod.MobileModule) ,
+        canActivate : [AuthMGuard] ,
     } ,
     { path : "**", redirectTo : "/", pathMatch:'full' }
 ];

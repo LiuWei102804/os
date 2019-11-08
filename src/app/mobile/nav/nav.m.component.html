@@ -1,7 +1,7 @@
 <div class="full-screen" *ngIf="slide" (click)="slideMenu($event)">
     <div class="slide-menu animated fast" [ngClass]="{ 'slide-in' : slide , 'fadeInRight' : slide  }">
 
-        <span *ngFor="let m of menus"><i class="fa" [ngClass]="m.icon" routerLinkActive="active" [routerLink]="m.url" [routerLinkActiveOptions]="{exact:true}"></i>{{ m.title }}</span>
+        <span *ngFor="let m of menus" routerLinkActive="active" [routerLink]="m.url" [routerLinkActiveOptions]="{exact:true}"><i class="fa" [ngClass]="m.icon"></i>{{ m.title }}</span>
 
     </div>
 </div>

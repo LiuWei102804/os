@@ -7,15 +7,18 @@ import { SystemServer } from "./system.server";
 @Injectable({
     providedIn : "root"
 })
-export class AuthGuard implements CanActivate{
+export class AuthMGuard implements CanActivate{
     constructor( private router: Router ){
 
     }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
-        if( !(SystemServer.isPhone()) ) {
+        if( SystemServer.isPhone() ) {
             return true;
         }
-        this.router.navigate(["/mobile"]);
+        let root = document.documentElement;
+        root.style.removeProperty("font-size");
+
+        this.router.navigate(["/"]);
         return false;
 
     }
