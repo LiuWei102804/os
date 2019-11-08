@@ -1,4 +1,4 @@
-.slide-menu{ width: 100%; height: 80px; line-height: 80px; background:rgba(43,161,252,.2); color: #fff; display: flex; padding-left: 40%; justify-content: space-around; padding-right: 20%; }
+.slide-menu{ width: 100%; height: 80px; line-height: 80px; background:rgba(43,161,252,.2); color: #fff; display: flex; padding-left: 40%; justify-content: space-around; padding-right: 8%; }
 .slide-menu span{ display: flex; cursor: pointer; font-size: 18px; font-weight: bold; font-family: "Microsoft YaHei", "宋体", sans-serif; position: relative; outline: none;}
 .slide-menu span.active:after{ transform: scaleX(1); }
 .slide-menu i{line-height: 80px; margin-right: 3px; }
