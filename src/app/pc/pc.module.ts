@@ -8,9 +8,11 @@ import { PcRoutingModule } from "./pc.routing.module";
 import { PcComponent } from "./pc.component";
 import { NavComponent } from "./nav/nav.component";
 import { DemoComponent } from "./demo/demo.component";
-import { DemandComponent } from "./demand/demand.component";
+import { CustomComponent } from "./demand/custom.component";
 import { HomeComponent } from "./home/home.component";
-import { NewsComponent } from "./news/news.component";
+import { EmoticonComponent } from "./emoticon/emoticon.component";
+import { NotFoundComponent } from "./404/not-found.component";
+import { UserComponent } from "./user/user.component";
 
 @NgModule({
     imports:[
@@ -24,9 +26,11 @@ import { NewsComponent } from "./news/news.component";
         PcComponent ,
         NavComponent ,
         DemoComponent ,
-        DemandComponent ,
+        CustomComponent ,
         HomeComponent ,
-        NewsComponent
+        EmoticonComponent ,
+        NotFoundComponent ,
+        UserComponent
     ] ,
     bootstrap:[PcComponent]
 })

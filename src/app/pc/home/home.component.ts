@@ -6,7 +6,7 @@ import { ElMessageService } from "element-angular";
 @Component({
     selector:"app-home" ,
     templateUrl:"home.component.html",
-    styleUrls:["home.component.css","../demo/demo.component.css","../news/news.component.css","../demand/demand.component.css"]
+    styleUrls:["home.component.css","../demo/demo.component.css","../emoticon/emoticon.component.css","../demand/custom.component.css"]
 })
 
 

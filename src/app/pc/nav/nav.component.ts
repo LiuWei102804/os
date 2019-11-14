@@ -11,8 +11,8 @@ export class NavComponent implements OnInit{
     public menus:Array<any> = [
         { title : "逗•大厅" , url : "/" , icon : "fa-home"} ,
         { title : "逗•文学" , url : "/text" , icon : "fa-tasks" } ,
-        { title : "逗•图片"  , url : "/demand" , icon : "fa-code" } ,
-        { title : "逗•原创" , url : "/news" , icon : "fa-newspaper-o" } ,
+        { title : "逗•图片"  , url : "/emoticon" , icon : "fa-code" } ,
+        { title : "逗•原创" , url : "/custom" , icon : "fa-newspaper-o" } ,
         { title : "手机站"  , url : "/mobile" , icon : "fa-mobile" }
     ];
     constructor(){

@@ -21,7 +21,7 @@ const routes: Routes = [
                 component : DemoMComponent
             } ,
             {
-                path : "news" ,
+                path : "emoticon" ,
                 component : NewsMComponent
             } ,
             {

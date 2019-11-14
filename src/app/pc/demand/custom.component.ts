@@ -5,11 +5,11 @@ import { ElMessageService } from "element-angular";
 
 @Component({
     selector : "app-demand" ,
-    templateUrl : "demand.component.html" ,
-    styleUrls : ["demand.component.css"]
+    templateUrl : "custom.component.html" ,
+    styleUrls : ["custom.component.css"]
 })
 
-export class DemandComponent implements OnInit{
+export class CustomComponent implements OnInit{
     @Input("page") page:boolean = true;
     public nick_name:string = "";
     public contact:string = "";

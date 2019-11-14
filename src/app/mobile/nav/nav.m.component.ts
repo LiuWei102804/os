@@ -12,7 +12,7 @@ export class NavMComponent {
         { title : "首页" , url : "/mobile/" , icon : "fa-home"} ,
         { title : "案例" , url : "/mobile/demo" , icon : "fa-tasks" } ,
         { title : "需求"  , url : "/mobile/demand" , icon : "fa-code" } ,
-        { title : "小知识" , url : "/mobile/news" , icon : "fa-newspaper-o" } ,
+        { title : "小知识" , url : "/mobile/emoticon" , icon : "fa-newspaper-o" } ,
         { title : "PC站"  , url : "/mobile/pc" , icon : "fa-desktop" }
     ];
     constructor(){

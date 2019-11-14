@@ -6,30 +6,31 @@
             </ng-template>
         </el-input>
     </div>
+
     <div class="menu">
         <el-menu mode="vertical" model="1">
             <el-menu-item index="1">综合<i class="fa icon fa-caret-right"></i></el-menu-item>
-            <el-menu-item index="2">冷笑话<i class="fa icon fa-caret-right"></i></el-menu-item>
-            <el-menu-item index="3">方言<i class="fa icon fa-caret-right"></i></el-menu-item>
-            <el-menu-item index="4">经典<i class="fa icon fa-caret-right"></i></el-menu-item>
+            <el-menu-item index="2">动物系列<i class="fa icon fa-caret-right"></i></el-menu-item>
+            <el-menu-item index="3">程序员系列<i class="fa icon fa-caret-right"></i></el-menu-item>
+            <el-menu-item index="3">表情包<i class="fa icon fa-caret-right"></i></el-menu-item>
+            <el-menu-item index="3">其他<i class="fa icon fa-caret-right"></i></el-menu-item>
         </el-menu>
     </div>
+
     <div class="data-list">
         <el-card >
             <ng-template #header>
-                <span>冷笑话</span>
+                <span>综合</span>
             </ng-template>
             <ul class="list">
                 <li *ngFor="let item of tableData">
-                    <span>【{{item.type}}】</span>
-                    <p>{{ item.content }}</p>
-                    <time>{{ item.time }}</time>
+                    <img [src]="item.img" alt="" />
+                    <p>【{{ item.type }}】<time>{{ item.time }}</time></p>
+
                 </li>
             </ul>
             <el-pagination [total]="0" [layout]="['prev', 'pager', 'next']">
             </el-pagination>
         </el-card>
     </div>
-
-
 </section>

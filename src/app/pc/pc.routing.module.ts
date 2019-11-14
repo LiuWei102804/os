@@ -3,9 +3,11 @@ import { Routes , RouterModule } from "@angular/router";
 
 import { PcComponent } from "./pc.component";
 import { DemoComponent } from "./demo/demo.component";
-import { DemandComponent } from "./demand/demand.component";
+import { CustomComponent } from "./demand/custom.component";
 import { HomeComponent } from "./home/home.component";
-import { NewsComponent } from "./news/news.component";
+import { EmoticonComponent } from "./emoticon/emoticon.component";
+import { UserComponent } from "./user/user.component";
+
 
 const routes: Routes = [
     {
@@ -21,12 +23,16 @@ const routes: Routes = [
                 component: DemoComponent
             },
             {
-                path : "news" ,
-                component: NewsComponent
+                path : "emoticon" ,
+                component: EmoticonComponent
             },
             {
-                path : "demand" ,
-                component: DemandComponent
+                path : "custom" ,
+                component: CustomComponent
+            },
+            {
+                path : "user" ,
+                component: UserComponent
             }
         ]
     }
