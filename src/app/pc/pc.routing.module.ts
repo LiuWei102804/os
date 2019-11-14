@@ -17,7 +17,7 @@ const routes: Routes = [
                 component: HomeComponent
             },
             {
-                path : "demo" ,
+                path : "text" ,
                 component: DemoComponent
             },
             {

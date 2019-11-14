@@ -1,15 +1,37 @@
-<section [ngClass]="{ 'page' : page }">
-    <h2 class="pageName">案例<!--<small>more <i class="fa fa-angle-right"></i></small>--></h2>
-    <ul class="demos">
-        <li>
-            <div>
-                <h3>bison</h3>
-                <div>
-                    <img src="assets/demo1.jpg" alt="" />
-                    <img src="assets/demo2.jpg" alt="" />
-                    <img src="assets/demo3.jpg" alt="" />
-                </div>
-            </div>
-        </li>
-    </ul>
+<section class="page">
+    <div class="search">
+        <el-input placeholder="请输入关键字" [model]="search">
+            <ng-template #append>
+                <el-button icon="search" type="primary">搜索</el-button>
+            </ng-template>
+        </el-input>
+    </div>
+    <div class="menu">
+        <el-menu mode="vertical" model="1">
+            <el-menu-item index="1">
+                冷笑话
+                <i class="fa icon fa-caret-right"></i>
+            </el-menu-item>
+            <el-menu-item index="2">方言<i class="fa icon fa-caret-right"></i></el-menu-item>
+            <el-menu-item index="3">经典<i class="fa icon fa-caret-right"></i></el-menu-item>
+        </el-menu>
+    </div>
+    <div class="data-list">
+        <el-card >
+            <ng-template #header>
+                <span class="phb">冷笑话</span>
+            </ng-template>
+            <ul class="list">
+                <li *ngFor="let item of tableData">
+                    <span>【{{item.type}}】</span>
+                    <p>{{ item.content }}</p>
+                    <time>{{ item.time }}</time>
+                </li>
+            </ul>
+            <el-pagination [total]="0" [layout]="['prev', 'pager', 'next']">
+            </el-pagination>
+        </el-card>
+    </div>
+
+
 </section>

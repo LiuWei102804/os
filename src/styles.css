@@ -9,7 +9,8 @@ input:-moz-placeholder { color:#686869; }
 input:placeholder { color:#686869; }
 input:-ms-input-placeholder{ color:#686869; }
 #app{ width: 100%; height: 100%; }
+img{ border: none; }
 
 
-.page{width: 90%; height: auto; margin: 80px auto; background: rgba(29,171,235,.6); border-radius: 5px; padding: 40px 30px; }
+.page{width: 90%; height: auto; padding: 100px 0 0; margin: 0 auto; overflow: hidden; }
 .page-m{ width: 96%; height: auto; margin: 1rem auto; padding:.3rem .4rem;  }

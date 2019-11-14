@@ -1,18 +1,149 @@
-<section style="background: none; padding-top: 0;" class="page">
-    <div class="info-list">
-        <h2>服务内容</h2>
-        <p>企业官网，电商系统，H5移动端跨平台开发</p>
-        <p>定制 App，安卓&IOS 混合开发</p>
-        <p>微信小程序，微信公众号</p>
+<section class="banner">
+    <el-carousel height="400px" [interval]="1000" arrow="never">
+        <el-carousel-item *ngFor="let item of banner">
+            <div class="banner-item">
+                <img [src]="item" />
+            </div>
+        </el-carousel-item>
+    </el-carousel>
+</section>
+
+<section class="page">
+    <div class="search">
+        <el-input placeholder="请输入关键字" [model]="search">
+            <ng-template #append>
+                <el-button icon="search" type="primary">搜索</el-button>
+            </ng-template>
+        </el-input>
     </div>
-    <div class="info-list">
-        <app-demo [page]="false"></app-demo>
+
+    <div class="content">
+        <!--<div class="page-row">-->
+            <div class="block">
+                <el-card >
+                    <ng-template #header>
+                        <span class="phb">逗•排行</span>
+                        <span class="more">more
+                        <i class="fa fa-angle-right"></i>
+                    </span>
+                    </ng-template>
+                    <ul class="hot">
+                        <li *ngFor="let item of hots" class="text item">
+                            <p>{{ item.text }}</p>
+                            <span class="good">
+                        <i class="fa fa-thumbs-up"></i>
+                        {{ item.good }}
+                    </span>
+                            <time class="time">
+                                <i class="fa fa-clock-o"></i>
+                                {{ item.time }}
+                            </time>
+                        </li>
+                    </ul>
+                    <p class="get-more">
+                        查看更多
+                        <i class="fa fa-hand-o-up"></i>
+                    </p>
+                </el-card>
+            </div>
+            <div class="block inline">
+                <el-card >
+                    <ng-template #header>
+                        <span class="animal">那些动物</span>
+                        <span class="more">more
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                    </ng-template>
+                    <ul class="hot">
+                        <li>
+                            <div>
+                                <img src="assets/dog1.jpg" alt="" />
+                                <span>秋田犬</span>
+                            </div>
+                            <div>
+                                <img src="assets/bird1.jpg" alt="" />
+                                <span>猫头鹰</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="get-more">
+                        查看更多
+                        <i class="fa fa-hand-o-up"></i>
+                    </p>
+                </el-card>
+            </div>
+        <!--</div>-->
+
+        <div class="block">
+            <el-card >
+                <ng-template #header>
+                    <span class="cold">逗•冷宫</span>
+                    <span class="more">more
+                        <i class="fa fa-angle-right"></i>
+                    </span>
+                </ng-template>
+                <ul class="hot">
+                    <li *ngFor="let item of cold" class="text item">
+                        <p>{{ item.text }}</p>
+                        <span class="good">
+                        <i class="fa fa-thumbs-up"></i>
+                        {{ item.good }}
+                    </span>
+                        <time class="time">
+                            <i class="fa fa-clock-o"></i>
+                            {{ item.time }}
+                        </time>
+                    </li>
+                </ul>
+                <p class="get-more">
+                    查看更多
+                    <i class="fa fa-hand-o-up"></i>
+                </p>
+            </el-card>
+        </div>
+
+        <div class="block inline">
+            <el-card >
+                <ng-template #header>
+                    <span class="bqb">表情包系列</span>
+                    <span class="more">more
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                </ng-template>
+                <ul class="hot">
+                    <li>
+                        <div>
+                            <img src="assets/bqb1.jpeg" alt="" />
+                            <span> 打起来</span>
+                        </div>
+                        <div>
+                            <img src="assets/bqb2.jpeg" alt="" />
+                            <span>怼死你</span>
+                        </div>
+                    </li>
+                </ul>
+                <p class="get-more">
+                    查看更多
+                    <i class="fa fa-hand-o-up"></i>
+                </p>
+            </el-card>
+        </div>
     </div>
-    <div class="info-list">
-        <app-news [page]="false"></app-news>
-    </div>
-    <div class="info-list">
-        <app-demand [page]="false"></app-demand>
-    </div>
-    <div [el-loading]="loading" [full-screen]="false" [lock]="true" text="加载中"></div>
+    <!--<div class="info-list">-->
+        <!--<h2>服务内容</h2>-->
+        <!--<p>企业官网，电商系统，H5移动端跨平台开发</p>-->
+        <!--<p>定制 App，安卓&IOS 混合开发</p>-->
+        <!--<p>微信小程序，微信公众号</p>-->
+    <!--</div>-->
+    <!--<div class="info-list">-->
+        <!--<app-demo [page]="false"></app-demo>-->
+    <!--</div>-->
+    <!--<div class="info-list">-->
+        <!--<app-news [page]="false"></app-news>-->
+    <!--</div>-->
+    <!--<div class="info-list">-->
+        <!--<app-demand [page]="false"></app-demand>-->
+    <!--</div>-->
+    <!--<div [el-loading]="loading" [full-screen]="false" [lock]="true" text="加载中"></div>-->
+
 </section>
