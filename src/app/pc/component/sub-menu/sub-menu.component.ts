@@ -1,5 +1,5 @@
 import { Component, OnInit, Input ,AfterViewInit } from "@angular/core";
-import Swiper from "swiper";
+import { ApiServer } from "../../../server/api.server";
 
 @Component({
     selector : "app-sub-menu" ,
@@ -8,24 +8,30 @@ import Swiper from "swiper";
 })
 
 export class SubMenuComponent implements OnInit ,AfterViewInit {
-    @Input("menus") menus;
+    @Input("category") category:string = "1";
     public activeIndex:number = 0;
-    constructor(){
+    public menus:Array<any> = [];
+    constructor(private api: ApiServer){
 
     }
     ngOnInit(){
-
+        this.getMenus();
     }
     ngAfterViewInit(){
-        const _self = this;
-        new Swiper('.swiper-container', {
-            slidesPerView: 4.3 ,
-            on : {
-                tap : function () {
-                    _self.activeIndex = this.clickedIndex;
-                }
-            }
-        });
 
+
+    }
+    getMenus(): void{
+        this.api.getMenuServe( [this.category] ).then( res => {
+            switch ( res.code ) {
+                case 200 :
+                    this.menus = res.result;
+                    break;
+                default :
+
+            }
+        },err => {
+
+        })
     }
 }

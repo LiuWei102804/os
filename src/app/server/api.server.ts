@@ -6,14 +6,16 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
     providedIn : "root"
 })
 export class ApiServer {
-    public subscribeUrl:string = "/register/submit";
+    public static getMenuUrl:string = "/web/menu/getMenus";
     private httpHeaders:HttpHeaders;
     constructor(private http: HttpClient ){
         this.httpHeaders = new HttpHeaders();
         // this.httpHeaders.append("Content-Type","application/json; charset=UTF-8");
         // this.httpHeaders.append("token","123");
     }
-    subscribe( data: object ): Promise<any> {
-        return this.http.post( this.subscribeUrl , data ).toPromise();
+    public getMenuServe( params: Array<string> ): Promise<any>{
+        let url = ApiServer.getMenuUrl + '/' + params.join("/");
+
+        return this.http.get( url ).toPromise();
     }
 }
