@@ -1,0 +1,3 @@
+.search{ width: 60%; height: 60px; margin: 0 auto; overflow: hidden;}
+.search .input{ width: 80%; float: left; }
+.search .button{ width: 20%; float: left; }

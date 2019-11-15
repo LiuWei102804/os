@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component ,ElementRef , OnInit ,AfterViewInit } from "@angular/core";
 
 @Component({
     selector : "app-m-nav" ,
@@ -6,24 +6,32 @@ import { Component } from "@angular/core";
     styleUrls : ["nav.m.component.css"]
 })
 
-export class NavMComponent {
+export class NavMComponent implements OnInit ,AfterViewInit {
     public slide:boolean = false;
     public menus:Array<any> = [
-        { title : "首页" , url : "/mobile/" , icon : "fa-home"} ,
-        { title : "案例" , url : "/mobile/demo" , icon : "fa-tasks" } ,
-        { title : "需求"  , url : "/mobile/demand" , icon : "fa-code" } ,
-        { title : "小知识" , url : "/mobile/emoticon" , icon : "fa-newspaper-o" } ,
-        { title : "PC站"  , url : "/mobile/pc" , icon : "fa-desktop" }
+        { title : "逗•大厅" , url : "/mobile/" , icon : "fa-home"} ,
+        { title : "逗•文学" , url : "/mobile/text" , icon : "fa-tasks" } ,
+        { title : "逗•图片"  , url : "/mobile/emoticon" , icon : "fa-code" } ,
+        { title : "逗•原创" , url : "/mobile/custom" , icon : "fa-newspaper-o" }
+        // { title : "PC站"  , url : "/mobile/pc" , icon : "fa-desktop" },
     ];
-    constructor(){
+    constructor(private el: ElementRef){
 
     }
-    slideMenu( evt ): void{
-        let target = evt.target;
-
-        if( target.classList.contains("full-screen") || target.nodeName.toLowerCase() == "i" ) {
-            this.slide = !this.slide;
-        }
-        evt.stopPropagation();
+    ngOnInit(){
     }
+    ngAfterViewInit(){
+
+    }
+    slideMenu( $event ): boolean{
+        this.slide = !this.slide;
+        $event.stopPropagation();
+        return false;
+    }
+    slideIn(){
+        console.log( this )
+        this.slide = false;
+
+    }
+
 }

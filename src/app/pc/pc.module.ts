@@ -8,11 +8,14 @@ import { PcRoutingModule } from "./pc.routing.module";
 import { PcComponent } from "./pc.component";
 import { NavComponent } from "./nav/nav.component";
 import { DemoComponent } from "./demo/demo.component";
-import { CustomComponent } from "./demand/custom.component";
+import { CustomComponent } from "./custom/custom.component";
 import { HomeComponent } from "./home/home.component";
 import { EmoticonComponent } from "./emoticon/emoticon.component";
-import { NotFoundComponent } from "./404/not-found.component";
 import { UserComponent } from "./user/user.component";
+
+import { SubMenuComponent } from "./component/sub-menu/sub-menu.component";
+import { SearchComponent } from "./component/search/search.component";
+import { NotFoundComponent } from "./component/404/not-found.component";
 
 @NgModule({
     imports:[
@@ -30,7 +33,9 @@ import { UserComponent } from "./user/user.component";
         HomeComponent ,
         EmoticonComponent ,
         NotFoundComponent ,
-        UserComponent
+        UserComponent ,
+        SearchComponent ,
+        SubMenuComponent
     ] ,
     bootstrap:[PcComponent]
 })

@@ -1,21 +1,16 @@
 <section class="banner">
-    <el-carousel height="400px" [interval]="1000" arrow="never">
-        <el-carousel-item *ngFor="let item of banner">
-            <div class="banner-item">
-                <img [src]="item" />
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" *ngFor="let item of banner">
+                <img class="banner" [src]="item" alt="" />
             </div>
-        </el-carousel-item>
-    </el-carousel>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
 </section>
 
 <section class="page">
-    <div class="search">
-        <el-input placeholder="请输入关键字" [model]="search">
-            <ng-template #append>
-                <el-button icon="search" type="primary">搜索</el-button>
-            </ng-template>
-        </el-input>
-    </div>
+<app-search></app-search>
 
     <div class="content">
         <!--<div class="page-row">-->
@@ -24,8 +19,8 @@
                     <ng-template #header>
                         <span class="phb">逗•排行</span>
                         <span class="more" routerLink="/text">more
-                        <i class="fa fa-angle-right"></i>
-                    </span>
+                            <i class="fa fa-angle-right"></i>
+                        </span>
                     </ng-template>
                     <ul class="hot">
                         <li *ngFor="let item of hots" class="text item">
@@ -142,7 +137,7 @@
         <!--<app-emoticon [page]="false"></app-emoticon>-->
     <!--</div>-->
     <!--<div class="info-list">-->
-        <!--<app-demand [page]="false"></app-demand>-->
+        <!--<app-custom [page]="false"></app-custom>-->
     <!--</div>-->
     <!--<div [el-loading]="loading" [full-screen]="false" [lock]="true" text="加载中"></div>-->
 

@@ -1,9 +1,10 @@
-<div class="full-screen" *ngIf="slide" (click)="slideMenu($event)">
-    <div class="slide-menu animated fast" [ngClass]="{ 'slide-in' : slide , 'fadeInRight' : slide  }">
-
-        <span *ngFor="let m of menus" routerLinkActive="active" [routerLink]="m.url" [routerLinkActiveOptions]="{exact:true}"><i class="fa" [ngClass]="m.icon"></i>{{ m.title }}</span>
-
-    </div>
+<div class="slide-menu" [ngClass]="{ 'slide-out' : slide , 'slide-in' : !slide  }">
+    <span *ngFor="let m of menus" routerLinkActive="active" [routerLink]="m.url" [routerLinkActiveOptions]="{exact:true}">{{ m.title }}</span>
+    <a href="javascript:void(0)" class="user" routerLink="/mobile/user">
+        <img src="assets/user.png" width="100%" alt="" *ngIf="true" />
+    </a>
 </div>
 
-<i class="fa fa-navicon menu" (click)="slideMenu($event)"></i>
+
+
+<i class="fa fa-navicon menu" (touchend)="slideMenu($event)"></i>

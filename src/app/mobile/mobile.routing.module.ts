@@ -3,9 +3,9 @@ import { Routes , RouterModule } from "@angular/router";
 import { MobileComponent } from "./mobile.component";
 import { HomeMComponent } from "./home/home.m.component";
 import { DemoMComponent } from "./demo/demo.m.component";
-import { NewsMComponent } from "./news/news.m.component";
-import { DemandMComponent } from "./demand/demand.m.component";
-import { PcMComponent } from "./pc/pc.m.component";
+import { EmoticonComponent } from "./emoticon/emoticon.component";
+import { CustomComponent } from "./custom/custom.component";
+import { UserComponent } from "./user/user.component";
 
 const routes: Routes = [
     {
@@ -17,20 +17,20 @@ const routes: Routes = [
                 component : HomeMComponent
             } ,
             {
-                path : "demo" ,
+                path : "text" ,
                 component : DemoMComponent
             } ,
             {
                 path : "emoticon" ,
-                component : NewsMComponent
+                component : EmoticonComponent
             } ,
             {
-                path : "demand" ,
-                component : DemandMComponent
+                path : "custom" ,
+                component : CustomComponent
             } ,
             {
-                path : "pc" ,
-                component : PcMComponent
+                path : "user" ,
+                component : UserComponent
             }
         ]
     }

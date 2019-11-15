@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component , ElementRef , OnInit } from "@angular/core";
+import { NavMComponent } from "./nav/nav.m.component";
 
 (function () {
    let root = document.documentElement;
@@ -9,11 +10,16 @@ import { Component } from "@angular/core";
 @Component({
     selector : "app-mobile" ,
     templateUrl : "mobile.component.html" ,
-    styleUrls : ["mobile.component.css"]
+    styleUrls : ["mobile.component.css"] ,
+    providers:[NavMComponent]
 })
 
-export class MobileComponent{
-    constructor(){
+export class MobileComponent implements OnInit{
 
+    constructor(private nav: NavMComponent, private el:ElementRef){
+
+    }
+    ngOnInit(){
+        this.el.nativeElement.querySelector(".root").addEventListener("touchend" , () => this.nav.slideIn() );
     }
 }

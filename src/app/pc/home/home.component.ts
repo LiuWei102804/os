@@ -1,16 +1,17 @@
-import { Component , OnInit ,ElementRef, ViewChild } from "@angular/core";
+import { Component , OnInit ,ElementRef, ViewChild, AfterViewInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ApiServer} from "../../server/api.server";
 import { ElMessageService } from "element-angular";
+import Swiper from "swiper";
 
 @Component({
     selector:"app-home" ,
     templateUrl:"home.component.html",
-    styleUrls:["home.component.css","../demo/demo.component.css","../emoticon/emoticon.component.css","../demand/custom.component.css"]
+    styleUrls:["home.component.css","../demo/demo.component.css","../emoticon/emoticon.component.css","../custom/custom.component.css"]
 })
 
 
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit, AfterViewInit{
     private starNum:number = 400;
 
     public nick_name:string = "";
@@ -73,6 +74,19 @@ export class HomeComponent implements OnInit{
         }, err => {
             this.loading = false;
         })
+    }
+    ngAfterViewInit(){
+        new Swiper('.swiper-container', {
+            autoplay: {
+                disableOnInteraction: false,
+            } ,
+            loop: true ,
+
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination'
+            }
+        });
     }
     ngOnInit(){
 

@@ -9,9 +9,13 @@ import { MobileComponent } from "./mobile.component";
 import { NavMComponent } from "./nav/nav.m.component";
 import { HomeMComponent } from "./home/home.m.component";
 import { DemoMComponent } from "./demo/demo.m.component";
-import { NewsMComponent } from "./news/news.m.component";
-import { DemandMComponent } from "./demand/demand.m.component";
-import { PcMComponent } from "./pc/pc.m.component";
+import { EmoticonComponent } from "./emoticon/emoticon.component";
+import { CustomComponent } from "./custom/custom.component";
+import { UserComponent } from "./user/user.component";
+
+import { SubMenuComponent } from "./component/sub-menu/sub-menu.component";
+import { SearchComponent } from "./component/search/search.component";
+import { NotFoundComponent } from "./component/404/not-found.component";
 
 @NgModule({
     imports:[
@@ -26,9 +30,12 @@ import { PcMComponent } from "./pc/pc.m.component";
         NavMComponent ,
         HomeMComponent ,
         DemoMComponent ,
-        NewsMComponent ,
-        DemandMComponent ,
-        PcMComponent
+        EmoticonComponent ,
+        CustomComponent ,
+        SubMenuComponent ,
+        SearchComponent ,
+        NotFoundComponent ,
+        UserComponent
     ],
     bootstrap:[MobileComponent]
 })

@@ -1,19 +1,6 @@
 <section class="page">
-    <div class="search">
-        <el-input placeholder="请输入关键字" [model]="search">
-            <ng-template #append>
-                <el-button icon="search" type="primary">搜索</el-button>
-            </ng-template>
-        </el-input>
-    </div>
-    <div class="menu">
-        <el-menu mode="vertical" model="1">
-            <el-menu-item index="1">综合<i class="fa icon fa-caret-right"></i></el-menu-item>
-            <el-menu-item index="2">冷笑话<i class="fa icon fa-caret-right"></i></el-menu-item>
-            <el-menu-item index="3">方言<i class="fa icon fa-caret-right"></i></el-menu-item>
-            <el-menu-item index="4">经典<i class="fa icon fa-caret-right"></i></el-menu-item>
-        </el-menu>
-    </div>
+    <app-search></app-search>
+    <app-sub-menu [menus]="subMenus"></app-sub-menu>
     <div class="data-list">
         <el-card >
             <ng-template #header>

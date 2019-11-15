@@ -8,7 +8,13 @@ import {Component, OnInit, Input } from "@angular/core";
 })
 
 export class EmoticonComponent implements OnInit {
-    @Input("page") page:boolean = true;
+    public subMenus:Array<any> = [
+        { title : "综合" } ,
+        { title : "动物系列" } ,
+        { title : "程序员系列" } ,
+        { title : "表情包系列" } ,
+        { title : "其他" }
+    ];
     public tableData:Array<any> = [
         {
             type: "动物系列" ,
@@ -36,7 +42,6 @@ export class EmoticonComponent implements OnInit {
             time:"2019-11-14 14:26:38"
         }
     ];
-    public search:string = "";
     constructor(){
 
     }

@@ -3,7 +3,7 @@ import { Routes , RouterModule } from "@angular/router";
 
 import { PcComponent } from "./pc.component";
 import { DemoComponent } from "./demo/demo.component";
-import { CustomComponent } from "./demand/custom.component";
+import { CustomComponent } from "./custom/custom.component";
 import { HomeComponent } from "./home/home.component";
 import { EmoticonComponent } from "./emoticon/emoticon.component";
 import { UserComponent } from "./user/user.component";

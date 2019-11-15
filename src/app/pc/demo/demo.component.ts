@@ -8,7 +8,12 @@ import {Component, OnInit, Input } from "@angular/core";
 
 
 export class DemoComponent implements OnInit {
-    @Input("page") page:boolean = true;
+    public subMenus:Array<any> = [
+        { title : "综合" } ,
+        { title : "冷笑话" } ,
+        { title : "方言" } ,
+        { title : "其他" }
+    ];
     public tableData:Array<any> = [
         {
             type: "冷笑话" ,
@@ -31,7 +36,6 @@ export class DemoComponent implements OnInit {
             time:"2019-11-14 14:06:18"
         },
     ];
-    public search:string = "";
     constructor(){
 
     }
