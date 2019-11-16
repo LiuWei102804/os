@@ -55,25 +55,7 @@ export class HomeComponent implements OnInit, AfterViewInit{
         this.router.navigate( [path] );
     }
     submit(){
-        this.loading = true;
-        let data = {
-            nick_name : this.nick_name ,
-            contact : this.contact ,
-            remarks : this.remarks
-        };
-        this.api.subscribe( data ).then(res => {
-            this.loading = false;
-            switch ( res.code ) {
-                case 200 :
-                    this.message.success("提交成功");
-                    break;
-                default :
-                    this.message.error( res.msg );
-                    this.el.nativeElement.querySelector("#contact").focus();
-            }
-        }, err => {
-            this.loading = false;
-        })
+
     }
     ngAfterViewInit(){
         new Swiper('.swiper-container', {
