@@ -1,4 +1,5 @@
 import { Component, OnInit , AfterViewInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import Swiper from "swiper";
 
 @Component({
@@ -13,10 +14,11 @@ export class HomeMComponent implements OnInit , AfterViewInit{
         "assets/xiao2.jpg" ,
         "assets/xiao3.jpg" ,
     ];
-    constructor(){
+    constructor(private active: ActivatedRoute){
 
     }
     ngOnInit(){
+        //console.log( this.active.snapshot.data )
         // new Swiper('.swiper-container', {
         //     autoplay: true,
         //     loop: true,

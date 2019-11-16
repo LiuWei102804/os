@@ -16,6 +16,7 @@ import { UserComponent } from "./user/user.component";
 import { SubMenuComponent } from "./component/sub-menu/sub-menu.component";
 import { SearchComponent } from "./component/search/search.component";
 import { NotFoundComponent } from "./component/404/not-found.component";
+import { NavBarComponent} from "./component/nav-bar/nav-bar.component";
 
 @NgModule({
     imports:[
@@ -35,7 +36,8 @@ import { NotFoundComponent } from "./component/404/not-found.component";
         SubMenuComponent ,
         SearchComponent ,
         NotFoundComponent ,
-        UserComponent
+        UserComponent ,
+        NavBarComponent
     ],
     bootstrap:[MobileComponent]
 })

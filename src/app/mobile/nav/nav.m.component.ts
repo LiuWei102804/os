@@ -9,10 +9,10 @@ import { Component ,ElementRef , OnInit ,AfterViewInit } from "@angular/core";
 export class NavMComponent implements OnInit ,AfterViewInit {
     public slide:boolean = false;
     public menus:Array<any> = [
-        { title : "逗•大厅" , url : "/mobile/" , icon : "fa-home"} ,
-        { title : "逗•文学" , url : "/mobile/text" , icon : "fa-tasks" } ,
-        { title : "逗•图片"  , url : "/mobile/emoticon" , icon : "fa-code" } ,
-        { title : "逗•原创" , url : "/mobile/custom" , icon : "fa-newspaper-o" }
+        { title : "首页" , url : "/mobile/" , icon : "fa-home"} ,
+        { title : "文章" , url : "/mobile/text" , icon : "fa-tasks" } ,
+        { title : "图片"  , url : "/mobile/emoticon" , icon : "fa-code" } ,
+        { title : "原创" , url : "/mobile/custom" , icon : "fa-newspaper-o" }
         // { title : "PC站"  , url : "/mobile/pc" , icon : "fa-desktop" },
     ];
     constructor(private el: ElementRef){
@@ -29,7 +29,7 @@ export class NavMComponent implements OnInit ,AfterViewInit {
         return false;
     }
     slideIn(){
-        console.log( this )
+        //console.log( this )
         this.slide = false;
 
     }

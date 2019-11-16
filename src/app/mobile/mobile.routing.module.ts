@@ -11,26 +11,47 @@ const routes: Routes = [
     {
         path : "" ,
         component : MobileComponent ,
+        data : { a : 1} ,
         children : [
             {
                 path : "" ,
-                component : HomeMComponent
+                component : HomeMComponent ,
+                data : {
+                    title : "首页" ,
+                    root : true
+                }
             } ,
             {
                 path : "text" ,
-                component : DemoMComponent
+                component : DemoMComponent ,
+                data : {
+                    title : "文章" ,
+                    root : false
+                }
             } ,
             {
                 path : "emoticon" ,
-                component : EmoticonComponent
+                component : EmoticonComponent,
+                data : {
+                    title : "图片" ,
+                    root : false
+                }
             } ,
             {
                 path : "custom" ,
-                component : CustomComponent
+                component : CustomComponent ,
+                data : {
+                    title : "原创" ,
+                    root : false
+                }
             } ,
             {
                 path : "user" ,
-                component : UserComponent
+                component : UserComponent ,
+                data : {
+                    title : "用户" ,
+                    root : false
+                }
             }
         ]
     }

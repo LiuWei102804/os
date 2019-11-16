@@ -2,8 +2,7 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide" [ngClass]="{ 'active': i == activeIndex }"
-                 *ngFor="let menu of menus; let i = index">{{
-                menu.title }}</div>
+                 *ngFor="let menu of menus; let i = index">{{ menu.title }}</div>
         </div>
     </div>
 </nav>
