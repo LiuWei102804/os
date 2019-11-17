@@ -19,6 +19,8 @@ import { SearchComponent } from "./component/search/search.component";
 import { NotFoundComponent } from "./component/404/not-found.component";
 import { NavBarComponent} from "./component/nav-bar/nav-bar.component";
 
+import { AutoWidthPipe } from "../filters/replace-dom.filter";
+
 @NgModule({
     imports:[
         CommonModule ,
@@ -39,7 +41,9 @@ import { NavBarComponent} from "./component/nav-bar/nav-bar.component";
         NotFoundComponent ,
         UserComponent ,
         NavBarComponent ,
-        DetailComponent
+        DetailComponent ,
+
+        AutoWidthPipe
     ],
     bootstrap:[MobileComponent]
 })
