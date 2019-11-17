@@ -21,7 +21,6 @@ export class DemoComponent implements OnInit {
     }
     change( id ){
         this.typeId = id;
-        console.log(this.typeId)
     }
     async getList(){
         let data = await this.api.getArticleListServe([this.current,this.limit,this.typeId] );

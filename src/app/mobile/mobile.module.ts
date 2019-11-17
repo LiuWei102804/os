@@ -2,7 +2,6 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { ElModule } from 'element-angular';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MobileRoutingModule } from "./mobile.routing.module";
 
@@ -13,6 +12,7 @@ import { DemoMComponent } from "./pages/demo/demo.m.component";
 import { EmoticonComponent } from "./pages/emoticon/emoticon.component";
 import { CustomComponent } from "./pages/custom/custom.component";
 import { UserComponent } from "./pages/user/user.component";
+import { DetailComponent } from "./pages/detail/detail.component";
 
 import { SubMenuComponent } from "./component/sub-menu/sub-menu.component";
 import { SearchComponent } from "./component/search/search.component";
@@ -38,7 +38,8 @@ import { NavBarComponent} from "./component/nav-bar/nav-bar.component";
         SearchComponent ,
         NotFoundComponent ,
         UserComponent ,
-        NavBarComponent
+        NavBarComponent ,
+        DetailComponent
     ],
     bootstrap:[MobileComponent]
 })

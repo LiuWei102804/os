@@ -24,7 +24,6 @@ export class SubMenuComponent implements OnInit ,AfterViewInit {
     }
     handle(index){
         this.change.emit( index );
-        console.log( index )
     }
     getList(){
 

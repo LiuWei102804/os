@@ -1,7 +1,8 @@
 <nav class="sub-menu">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" [ngClass]="{ 'active': i == activeIndex }"
+            <div class="swiper-slide" [ngClass]="{ 'active': activeIndex == 0 }">综合</div>
+            <div class="swiper-slide" [ngClass]="{ 'active': i + 1 == activeIndex }"
                  *ngFor="let menu of menus; let i = index">{{ menu.title }}</div>
         </div>
     </div>

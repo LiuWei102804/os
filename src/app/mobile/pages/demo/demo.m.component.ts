@@ -1,4 +1,5 @@
 import { Component, OnInit, Input ,AfterViewInit } from "@angular/core";
+import { ApiServer } from "../../../server/api.server";
 import Swiper from "swiper";
 
 @Component({
@@ -8,20 +9,17 @@ import Swiper from "swiper";
 })
 
 export class DemoMComponent implements OnInit ,AfterViewInit {
-    @Input("page") page:boolean = true;
     public swiper:Swiper;
     public activeIndex:number = 0;
-    public subMenus:Array<any> = [
-        { title : "综合" } ,
-        { title : "冷笑话" } ,
-        { title : "方言" } ,
-        { title : "其他" }
-    ];
-    constructor(){
+    public typeId:string = "0";
+    public tableData:Array<any> = [];
+    public current:number = 0;
+    public limit:number = 5;
+    constructor(private api: ApiServer){
 
     }
     ngOnInit(){
-
+        this.getList();
     }
     ngAfterViewInit(){
         const _self = this;
@@ -33,6 +31,15 @@ export class DemoMComponent implements OnInit ,AfterViewInit {
                 }
             }
         });
-
+    }
+    change( id ){
+        this.typeId = id;
+        console.log( id )
+    }
+    async getList(){
+        let data = await this.api.getArticleListServe([this.current,this.limit,this.typeId] );
+        if( data.code == 200 ) {
+            this.tableData = data.result.list;
+        }
     }
 }

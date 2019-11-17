@@ -1,4 +1,4 @@
-import { Component, OnInit, Input ,AfterViewInit ,OnDestroy } from "@angular/core";
+import { Component, OnInit, Input ,AfterViewInit ,OnDestroy, Output ,EventEmitter } from "@angular/core";
 import { ApiServer } from "../../../server/api.server";
 import Swiper from "swiper";
 
@@ -10,6 +10,7 @@ import Swiper from "swiper";
 
 export class SubMenuComponent implements OnInit ,AfterViewInit, OnDestroy {
     @Input("category") category:string = "1";
+    @Output() change:EventEmitter<any> = new EventEmitter();
     public swiper:Swiper;
     public activeIndex:number = 0;
     public menus:Array<any> = [];
@@ -29,7 +30,16 @@ export class SubMenuComponent implements OnInit ,AfterViewInit, OnDestroy {
             initialSlide: this.activeIndex ,
             on : {
                 tap : function () {
+                    let id;
+
+                    if( this.clickedIndex == 0 ) {
+                        id = "0";
+                    } else {
+                        id = _self.menus[Math.max(0,this.clickedIndex - 1)]._id;
+                    }
+                    _self.change.emit( id );
                     _self.activeIndex = this.clickedIndex;
+
                 } ,
                 init(){
                     _self.getMenus();

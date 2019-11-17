@@ -6,6 +6,7 @@ import { DemoMComponent } from "./pages/demo/demo.m.component";
 import { EmoticonComponent } from "./pages/emoticon/emoticon.component";
 import { CustomComponent } from "./pages/custom/custom.component";
 import { UserComponent } from "./pages/user/user.component";
+import { DetailComponent } from "./pages/detail/detail.component";
 
 const routes: Routes = [
     {
@@ -50,6 +51,14 @@ const routes: Routes = [
                 component : UserComponent ,
                 data : {
                     title : "用户" ,
+                    root : false
+                }
+            } ,
+            {
+                path : "detail/:id" ,
+                component : DetailComponent ,
+                data : {
+                    title : "详情" ,
                     root : false
                 }
             }
