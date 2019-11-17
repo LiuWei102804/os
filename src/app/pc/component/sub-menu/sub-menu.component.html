@@ -1,6 +1,9 @@
 <div class="menu">
-    <el-menu mode="vertical" model="1">
-        <el-menu-item index="0">综合<i class="fa icon fa-caret-right"></i></el-menu-item>
-        <el-menu-item [index]="i + 1" *ngFor="let menu of menus; let i = index;">{{ menu.title }}<i class="fa icon fa-caret-right"></i></el-menu-item>
+    <el-menu mode="vertical" [model]="activeIndex" (modelChange)="handle($event)">
+        <el-menu-item index="0">
+            综合<i class="fa icon fa-caret-right"></i>
+        </el-menu-item>
+        <el-menu-item [index]="menu._id" *ngFor="let menu of menus; let i = index;">{{ menu.title }}<i
+                class="fa icon fa-caret-right"></i></el-menu-item>
     </el-menu>
 </div>

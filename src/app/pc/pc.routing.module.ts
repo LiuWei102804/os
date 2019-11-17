@@ -2,11 +2,12 @@ import { NgModule } from "@angular/core";
 import { Routes , RouterModule } from "@angular/router";
 
 import { PcComponent } from "./pc.component";
-import { DemoComponent } from "./demo/demo.component";
-import { CustomComponent } from "./custom/custom.component";
-import { HomeComponent } from "./home/home.component";
-import { EmoticonComponent } from "./emoticon/emoticon.component";
-import { UserComponent } from "./user/user.component";
+import { DemoComponent } from "./pages/demo/demo.component";
+import { CustomComponent } from "./pages/custom/custom.component";
+import { HomeComponent } from "./pages/home/home.component";
+import { EmoticonComponent } from "./pages/emoticon/emoticon.component";
+import { UserComponent } from "./pages/user/user.component";
+import { DetailComponent } from "./pages/detail/detail.component";
 
 
 const routes: Routes = [
@@ -33,6 +34,10 @@ const routes: Routes = [
             {
                 path : "user" ,
                 component: UserComponent
+            },
+            {
+                path : "detail/:id" ,
+                component : DetailComponent
             }
         ]
     }

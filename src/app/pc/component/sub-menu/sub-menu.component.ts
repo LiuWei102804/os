@@ -1,4 +1,5 @@
-import { Component, OnInit, Input ,AfterViewInit } from "@angular/core";
+import { Component, OnInit, Input ,AfterViewInit , Output ,EventEmitter } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { ApiServer } from "../../../server/api.server";
 
 @Component({
@@ -9,9 +10,10 @@ import { ApiServer } from "../../../server/api.server";
 
 export class SubMenuComponent implements OnInit ,AfterViewInit {
     @Input("category") category:string = "1";
-    public activeIndex:number = 0;
+    @Output() change:EventEmitter<any> = new EventEmitter();
+    public activeIndex:string = "0";
     public menus:Array<any> = [];
-    constructor(private api: ApiServer){
+    constructor(private api: ApiServer,private active: ActivatedRoute){
 
     }
     ngOnInit(){
@@ -19,6 +21,12 @@ export class SubMenuComponent implements OnInit ,AfterViewInit {
     }
     ngAfterViewInit(){
 
+    }
+    handle(index){
+        this.change.emit( index );
+        console.log( index )
+    }
+    getList(){
 
     }
     getMenus(): void{

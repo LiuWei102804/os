@@ -1,6 +1,6 @@
 import { Component , OnInit ,ElementRef, ViewChild, AfterViewInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { ApiServer} from "../../server/api.server";
+import { ApiServer} from "../../../server/api.server";
 import { ElMessageService } from "element-angular";
 import Swiper from "swiper";
 

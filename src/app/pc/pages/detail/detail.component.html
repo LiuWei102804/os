@@ -1,0 +1,26 @@
+<section class="page">
+    <article class="article">
+        <el-card>
+            <ng-template #header>
+                <span class="title">{{ data.title }}</span>
+                <p class="sub">
+                    <time><i class="fa fa-clock-o"></i>{{ data.update_time }}</time>
+                    <span> <i class="fa fa-eye"></i>{{ data.read_number }}</span>
+                </p>
+            </ng-template>
+            <div class="content">
+                <span class="prev"> <i class="fa fa-chevron-circle-left"></i></span>
+                <span class="next"><i class="fa fa-chevron-circle-right"></i></span>
+                <div [innerHTML]="data.content"></div>
+            </div>
+        </el-card>
+    </article>
+    <article class="about">
+        <el-card header="其他">
+            <ul class="other">
+                <li><span>【综合】</span>1111</li>
+                <li><span>【其他】</span>2222</li>
+            </ul>
+        </el-card>
+    </article>
+</section>

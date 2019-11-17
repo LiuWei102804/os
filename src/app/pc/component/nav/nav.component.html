@@ -1,10 +1,9 @@
 <nav class="slide-menu">
     <!--<i class="logo">OS</i>-->
     <span *ngFor="let m of menus" [routerLink]="m.url" (mouseover)="showQr(m)" (mouseout)="hideQr()">
-        <a href="javascript:void(0)" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:
-true}">{{ m.title }}</a>
+        <a href="javascript:void(0)" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">{{ m.title }}</a>
         <!--<i class="fa" [ngClass]="m.icon"></i>-->
-        <div class="qr" *ngIf="m.url=='/mobile' && qr" (mouseover)="showQr(m)">
+        <div class="qr" [hidden]="!(m.url=='/mobile' && qr)" (mouseover)="showQr(m)">
             <i class="fa fa-caret-up"></i>
             <img src="assets/qrcode.png" width="120"/>
         </div>

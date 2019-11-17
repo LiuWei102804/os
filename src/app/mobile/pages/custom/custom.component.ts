@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, Input } from "@angular/core";
-import {ApiServer} from "../../server/api.server";
+import {ApiServer} from "../../../server/api.server";
 import { ElMessageService } from "element-angular";
 
 
@@ -21,6 +21,7 @@ export class CustomComponent implements OnInit{
     ngOnInit(){
 
     }
+
     submit(){
 
     }

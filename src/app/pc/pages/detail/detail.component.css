@@ -1,0 +1,18 @@
+.article{ width: 60%; height: auto; overflow: hidden; position: relative; margin-top: 30px; float: left; }
+.article .title{ display: block; font-size: 18px; text-align: center; font-weight: normal; color: #2d2f33; height: 40px; line-height: 40px; }
+.article .sub{ font-size: 12px; color: #8a8a8a; overflow: hidden; height: 40px; line-height: 40px; text-align: center; }
+.article .sub i{ margin-right: 3px; }
+.article .sub span{ margin-left: 30px; }
+
+.content{ position: relative; overflow: hidden; }
+.content .prev,.content .next{ color: #8a8a8a;  font-size: 16px; cursor: pointer; position: absolute; top:50%; margin-top: -8px; opacity: .3; }
+.content .prev:hover,.content .next:hover{ opacity: .8; }
+.content .next{ right: 0px; }
+.content  .prev i,.content  .next i{  font-size: 40px; }
+.content div{ width: 80%; margin: 10px auto 0; overflow: hidden; text-indent: 2em; min-height: 120px;  color: #8a8a8a; font-size: 16px; font-weight: normal; }
+.content div img{ width: 100% !important; }
+
+.about{ width: 37%; float: right; position: relative; overflow: hidden;  margin-top: 30px; }
+.about .other{ width: 100%; height: auto; }
+.about .other li{ font-size: 16px; color: #8a8a8a; width: 100%; height: 40px;line-height: 40px;  overflow: hidden; white-space: nowrap; text-overflow: ellipsis;  border-bottom: 1px solid #e6ebf5;}
+.about .other li span{ font-size: 14px; margin-right: 10px; }

@@ -1,5 +1,5 @@
 import { Component , ElementRef , OnInit } from "@angular/core";
-import { NavMComponent } from "./nav/nav.m.component";
+import { NavMComponent } from "./component/nav/nav.m.component";
 import {ActivatedRoute, Router, Route, NavigationEnd, NavigationStart } from "@angular/router";
 import {map} from 'rxjs/operators';
 

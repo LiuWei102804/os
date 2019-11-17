@@ -43,7 +43,6 @@ export class SubMenuComponent implements OnInit ,AfterViewInit, OnDestroy {
     }
 
     getMenus(): void{
-
         this.api.getMenuServe( [this.category] ).then( res => {
             switch ( res.code ) {
                 case 200 :

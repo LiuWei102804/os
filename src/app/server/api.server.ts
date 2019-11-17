@@ -7,14 +7,30 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 })
 export class ApiServer {
     public static getMenuUrl:string = "/web/menu/getMenus";
+    public static getArticleByIdUrl:string = "/web/article/getById";
+    public static getArticleListUrl:string = "/web/article/getArticleList";
+
+
+
     private httpHeaders:HttpHeaders;
-    constructor(private http: HttpClient ){
-        this.httpHeaders = new HttpHeaders();
-        // this.httpHeaders.append("Content-Type","application/json; charset=UTF-8");
-        // this.httpHeaders.append("token","123");
+    constructor(private http: HttpClient){
+        //this.httpHeaders = new HttpHeaders();
+
     }
-    public getMenuServe( params: Array<string> ): Promise<any>{
+    public getMenuServe( params: Array<any> ): Promise<any>{
         let url = ApiServer.getMenuUrl + '/' + params.join("/");
+
+        return this.http.get( url ).toPromise();
+    }
+
+    public getArticleByIdServe( params: Array<any> ): Promise<any>{
+        let url = ApiServer.getArticleByIdUrl + '/' + params.join("/");
+
+        return this.http.get( url ).toPromise();
+    }
+
+    public getArticleListServe( params: Array<any> ): Promise<any>{
+        let url = ApiServer.getArticleListUrl + '/' + params.join("/");
 
         return this.http.get( url ).toPromise();
     }

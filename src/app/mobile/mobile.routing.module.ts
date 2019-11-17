@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { Routes , RouterModule } from "@angular/router";
 import { MobileComponent } from "./mobile.component";
-import { HomeMComponent } from "./home/home.m.component";
-import { DemoMComponent } from "./demo/demo.m.component";
-import { EmoticonComponent } from "./emoticon/emoticon.component";
-import { CustomComponent } from "./custom/custom.component";
-import { UserComponent } from "./user/user.component";
+import { HomeMComponent } from "./pages/home/home.m.component";
+import { DemoMComponent } from "./pages/demo/demo.m.component";
+import { EmoticonComponent } from "./pages/emoticon/emoticon.component";
+import { CustomComponent } from "./pages/custom/custom.component";
+import { UserComponent } from "./pages/user/user.component";
 
 const routes: Routes = [
     {
