@@ -1,7 +1,7 @@
 <div class="swiper-container">
     <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let item of banner">
-            <img class="banner" [src]="item" alt="" />
+            <img class="banner" [src]="item.img" alt="" [routerLink]="'/mobile/detail/'+ item.link_id" />
         </div>
     </div>
     <div class="swiper-pagination"></div>
@@ -12,17 +12,17 @@
     <div class="content">
         <div class="block">
             <span class="phb">阅读排行榜</span>
-            <span class="more" routerLink="/text">more
+            <span class="more" routerLink="/mobile/text">more
                 <i class="fa fa-angle-right"></i>
             </span>
             <ul class="list">
-                <li>
-                    <p>某人到商店买点钞机，挑了两台最贵的，同时问了一下老板为什么这种型号的贵一些，老板告诉他因为这是全智能语音型的。付款时他让老板就用这两台点钞机点钞，两台点钞机都报出了准确的数字，他认为语音功能还不错，但没看出什么智能来，老板说你以后用就知道了，他付完款后把点钞机放到车后座，开车回公司。</p>
-                    <span class="good"><i class="fa fa-thumbs-up"></i> 356 </span>
-                    <time class="time"><i class="fa fa-clock-o"></i> 2019-11-14 11:13:45 </time>
+                <li *ngFor="let item of tableData" [routerLink]="'/mobile/detail/'+ item._id">
+                    <p>{{ item.title }}</p>
+                    <!--<span class="good"><i class="fa fa-thumbs-up"></i> 356 </span>-->
+                    <time class="time"><i class="fa fa-clock-o"></i>{{ item.update_time }}</time>
                 </li>
             </ul>
-            <p class="get-more" routerLink="/text">
+            <p class="get-more" routerLink="/mobile/text">
                 查看更多
                 <i class="fa fa-hand-o-up"></i>
             </p>

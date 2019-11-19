@@ -20,9 +20,9 @@
 .content .block .list li{ overflow: hidden; border-bottom: 1px solid #bfbfbf; padding: .2rem 0; }
 .content .block .list li p{ display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: .6rem; font-size: .4rem; height: 1.2rem; overflow: hidden; margin-bottom: .2rem;}
 .content .block li .good{ float: left; }
-.content .block li .good i{ color: #8a8a8a; font-size: 16px; }
-.content .block li .time{ float: right;}
-.content .block li .time i{ color: #8a8a8a; font-size: 16px; }
+.content .block li .good i{ color: #8a8a8a; font-size: .35rem; }
+.content .block li .time{ float: right; font-size: .4rem;}
+.content .block li .time i{ color: #8a8a8a; font-size: .4rem; margin-right: .1rem; }
 .content .block .get-more{ width: 100%; height: .6rem; line-height: .6rem; font-size:.4rem; text-align: center; cursor: pointer; outline:none }
 .content .block .list li div{ width: 50%; height: 3.4rem; padding:0 .2rem; background: #fff; float: left; }
 .content .block .list li div img{ width: 100%; height: 78%; }

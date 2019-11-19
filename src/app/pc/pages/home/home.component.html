@@ -2,7 +2,7 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide" *ngFor="let item of banner">
-                <img class="banner" [src]="item" alt="" />
+                <img class="banner" [src]="item.img" alt="" [routerLink]="'/detail/'+ item.link_id" />
             </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -17,21 +17,21 @@
             <div class="block">
                 <el-card >
                     <ng-template #header>
-                        <span class="phb">逗•排行</span>
+                        <span class="phb">阅读排行榜</span>
                         <span class="more" routerLink="/text">more
                             <i class="fa fa-angle-right"></i>
                         </span>
                     </ng-template>
                     <ul class="hot">
-                        <li *ngFor="let item of hots" class="text item">
-                            <p>{{ item.text }}</p>
-                            <span class="good">
-                        <i class="fa fa-thumbs-up"></i>
-                        {{ item.good }}
-                    </span>
+                        <li *ngFor="let item of tableData" class="text item" [routerLink]="'/detail/'+ item._id">
+                            <p>{{ item.title }}</p>
+                            <!--<span class="good">-->
+                        <!--<i class="fa fa-thumbs-up"></i>-->
+                        <!--{{ item.good }}-->
+                    <!--</span>-->
                             <time class="time">
                                 <i class="fa fa-clock-o"></i>
-                                {{ item.time }}
+                                {{ item.update_time }}
                             </time>
                         </li>
                     </ul>
@@ -44,7 +44,7 @@
             <div class="block inline">
                 <el-card >
                     <ng-template #header>
-                        <span class="animal">那些动物</span>
+                        <span class="animal">动物的一瞬间</span>
                         <span class="more" routerLink="/emoticon">more
                             <i class="fa fa-angle-right"></i>
                         </span>
@@ -72,21 +72,21 @@
         <div class="block">
             <el-card >
                 <ng-template #header>
-                    <span class="cold">逗•冷宫</span>
+                    <span class="cold">最新发布</span>
                     <span class="more" routerLink="/text">more
                         <i class="fa fa-angle-right"></i>
                     </span>
                 </ng-template>
                 <ul class="hot">
-                    <li *ngFor="let item of cold" class="text item">
-                        <p>{{ item.text }}</p>
-                        <span class="good">
-                        <i class="fa fa-thumbs-up"></i>
-                        {{ item.good }}
-                    </span>
+                    <li *ngFor="let item of newTableData" class="text item" [routerLink]="'/detail/'+ item._id">
+                        <p>{{ item.title }}</p>
+                        <!--<span class="good">-->
+                        <!--<i class="fa fa-thumbs-up"></i>-->
+                        <!--{{ item.good }}-->
+                    <!--</span>-->
                         <time class="time">
                             <i class="fa fa-clock-o"></i>
-                            {{ item.time }}
+                            {{ item.update_time }}
                         </time>
                     </li>
                 </ul>
@@ -124,21 +124,4 @@
             </el-card>
         </div>
     </div>
-    <!--<div class="info-list">-->
-        <!--<h2>服务内容</h2>-->
-        <!--<p>企业官网，电商系统，H5移动端跨平台开发</p>-->
-        <!--<p>定制 App，安卓&IOS 混合开发</p>-->
-        <!--<p>微信小程序，微信公众号</p>-->
-    <!--</div>-->
-    <!--<div class="info-list">-->
-        <!--<app-demo [page]="false"></app-demo>-->
-    <!--</div>-->
-    <!--<div class="info-list">-->
-        <!--<app-emoticon [page]="false"></app-emoticon>-->
-    <!--</div>-->
-    <!--<div class="info-list">-->
-        <!--<app-custom [page]="false"></app-custom>-->
-    <!--</div>-->
-    <!--<div [el-loading]="loading" [full-screen]="false" [lock]="true" text="加载中"></div>-->
-
 </section>

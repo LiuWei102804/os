@@ -37,7 +37,7 @@ export class DemoMComponent implements OnInit ,AfterViewInit {
         console.log( id )
     }
     async getList(){
-        let data = await this.api.getArticleListServe([this.current,this.limit,this.typeId] );
+        let data = await this.api.getArticleListServe({type_id:this.typeId},[this.current,this.limit] );
         if( data.code == 200 ) {
             this.tableData = data.result.list;
         }

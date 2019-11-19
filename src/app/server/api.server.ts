@@ -10,6 +10,8 @@ export class ApiServer {
     public static getArticleByIdUrl:string = "/web/article/getById";
     public static getArticleListUrl:string = "/web/article/getArticleList";
 
+    public static getBannerUrl:string = "/web/banner/getBanner";
+
 
 
     private httpHeaders:HttpHeaders;
@@ -29,8 +31,14 @@ export class ApiServer {
         return this.http.get( url ).toPromise();
     }
 
-    public getArticleListServe( params: Array<any> ): Promise<any>{
+    public getArticleListServe( options = {} , params: Array<any> ): Promise<any>{
         let url = ApiServer.getArticleListUrl + '/' + params.join("/");
+
+        return this.http.post( url , options ).toPromise();
+    }
+
+    public getBannerServe( ): Promise<any>{
+        let url = ApiServer.getBannerUrl;
 
         return this.http.get( url ).toPromise();
     }

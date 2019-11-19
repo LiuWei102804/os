@@ -12,9 +12,7 @@ import {__param} from "tslib";
 
 
 export class DetailComponent implements OnInit {
-    public data:any = {
-        content :""
-    };
+    public data:any = {};
     constructor(private api:ApiServer,private active: ActivatedRoute){
 
     }

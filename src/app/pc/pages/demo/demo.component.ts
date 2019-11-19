@@ -23,7 +23,7 @@ export class DemoComponent implements OnInit {
         this.typeId = id;
     }
     async getList(){
-        let data = await this.api.getArticleListServe([this.current,this.limit,this.typeId] );
+        let data = await this.api.getArticleListServe({type_id:this.typeId},[this.current,this.limit,this.typeId] );
         if( data.code == 200 ) {
             this.tableData = data.result.list;
         }

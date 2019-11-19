@@ -1,6 +1,7 @@
 import { Component, OnInit , AfterViewInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import Swiper from "swiper";
+import { ApiServer } from "../../../server/api.server";
 
 @Component({
     selector : "app-m-home" ,
@@ -9,23 +10,24 @@ import Swiper from "swiper";
 })
 
 export class HomeMComponent implements OnInit , AfterViewInit{
-    public banner:Array<any> = [
-        "assets/xiao1.jpg" ,
-        "assets/xiao2.jpg" ,
-        "assets/xiao3.jpg" ,
-    ];
-    constructor(private active: ActivatedRoute){
+    public banner:Array<any> = [];
+    public tableData:Array<any> = [];
+    public current:number = 0;
+    public limit:number = 5;
+    public sort = {
+        read_number : true
+    };
+    constructor(private active: ActivatedRoute, private api :ApiServer ){
 
     }
-    ngOnInit(){
-        //console.log( this.active.snapshot.data )
-        // new Swiper('.swiper-container', {
-        //     autoplay: true,
-        //     loop: true,
-        // });
+    async ngOnInit(){
+        await this.getBanner();
+        await this.getList();
     }
     ngAfterViewInit(){
         new Swiper('.swiper-container', {
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper
+            observeParents:true ,//修改swiper的父元素时，自
             autoplay: {
                 disableOnInteraction: false,
             } ,
@@ -36,5 +38,17 @@ export class HomeMComponent implements OnInit , AfterViewInit{
                 el: '.swiper-pagination'
             }
         });
+    }
+    async getBanner(){
+        let data = await this.api.getBannerServe()
+        if( data.code == 200 ) {
+            this.banner = data.result;
+        }
+    }
+    async getList(){
+        let data = await this.api.getArticleListServe( this.sort ,[this.current,this.limit] );
+        if( data.code == 200 ) {
+            this.tableData = data.result.list;
+        }
     }
 }
