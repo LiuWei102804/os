@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style type="text/css">
+    #circle {
+        width: 500px;
+        height: 500px;
+        border: 1px solid red;
+        border-radius: 50%;
+        position: absolute;
+        left: 500px;
+        top: 100px;
+    }
+
+    #ball {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 85px;
+        left: 735px;
+        background: teal;
+        border-radius: 50%;
+    }
+</style>
+
+<body>
+<div id="circle"></div>
+<div id="ball"></div>
+</body>
+
+</html>
+<script>
+    var ball = document.getElementById("ball");
+    var circle = document.getElementById("circle");
+    var r = circle.offsetHeight / 2;
+    var reg = 90;
+    var x0 = circle.offsetLeft + circle.offsetWidth / 2;
+    var y0 = circle.offsetTop + circle.offsetWidth / 2;
+    setInterval(function () {
+        ball.style.left = x0 + Math.cos(reg * Math.PI / 180) * r - ball.offsetWidth / 2 + "px";
+        ball.style.top = y0 - Math.sin(reg * Math.PI / 180) * r - ball.offsetHeight / 2 + "px";
+        reg -= 2;
+    }, 10)
+</script>
