@@ -1,0 +1,16 @@
+{
+  "/web":{
+    "target":"http://osbuild.com.cn:9000",
+    "secure":false,
+    "logLevel":"debug",
+    "changeOrigin":true
+
+  } ,
+  "/ueditor":{
+    "target":"http://osbuild.com.cn:9000",
+    "secure":false,
+    "logLevel":"debug",
+    "changeOrigin":true
+
+  }
+}

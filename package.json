@@ -2,10 +2,11 @@
   "name": "os2",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve -o --proxy-config proxy.conf.json",
-    "build": "ng build",
-    "prod": "ng build --prod",
+    "start": "npm run local",
+    "dev":"ng serve -o --proxy-config proxy.conf.dev.json" ,
+    "local": "ng serve -o --proxy-config proxy.conf.local.json",
+    "prod": "ng serve -o --proxy-config proxy.conf.prod.json",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

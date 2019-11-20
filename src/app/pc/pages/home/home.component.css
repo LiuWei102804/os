@@ -18,7 +18,7 @@
 .content .block .animal{ padding-left: 30px; background-image: url("/assets/animal.png"); background-repeat: no-repeat; background-size: 20px; }
 .content .block .bqb{ padding-left: 30px; background-image: url("/assets/bqb.png"); background-repeat: no-repeat; background-size: 20px; }
 .content .block .hot{ width: 100%; height: auto; }
-.content .block .hot li{ width: 100%; height: 51px ; border-bottom: 1px solid #bfbfbf; padding: 5px 0; overflow: hidden; position: relative;}
+.content .block .hot li{ width: 100%; height: 51px ; outline: none; border-bottom: 1px solid #bfbfbf; padding: 5px 0; overflow: hidden; position: relative;}
 .content .block .hot li p{ width: 75%; height:100%; overflow: hidden; line-height: 20px; font-size: 14px; display: -webkit-box; -webkit-line-clamp: 2;  -webkit-box-orient: vertical; color: #8a8a8a; text-indent: 2em; float: left; }
 .content .block .hot li .good{ width: 18%; height: 20px; font-size: 12px; position: absolute; right: 0%; top: 5px; color:#bfbfbf;  }
 .content .block .hot li .good i{ color: #8a8a8a; font-size: 16px; }
