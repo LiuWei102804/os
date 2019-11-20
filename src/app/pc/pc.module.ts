@@ -17,6 +17,7 @@ import { DetailComponent } from "./pages/detail/detail.component";
 import { SubMenuComponent } from "./component/sub-menu/sub-menu.component";
 import { SearchComponent } from "./component/search/search.component";
 import { NotFoundComponent } from "./component/404/not-found.component";
+import { EmptyComponent } from "./component/empty/empty.component";
 
 @NgModule({
     imports:[
@@ -37,7 +38,8 @@ import { NotFoundComponent } from "./component/404/not-found.component";
         UserComponent ,
         SearchComponent ,
         SubMenuComponent ,
-        DetailComponent
+        DetailComponent ,
+        EmptyComponent
     ] ,
     bootstrap:[PcComponent]
 })

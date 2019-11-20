@@ -5,7 +5,7 @@
 .search .button{ width: 20%; float: left; }
 .page .data-list{ width: 70%; margin-left: 5%; float: left;  }
 .page .data-list .list{ width: 100%; max-height: 300px; height: auto; overflow: hidden; position: relative; border-bottom: 1px solid #e6ebf5; padding-bottom: 30px;}
-.page .data-list .list li{ width: 100%; height: 35px; line-height: 35px; padding: 0 10px; overflow: hidden; color: #8a8a8a; cursor: pointer; }
+.page .data-list .list li{ width: 100%; height: 35px; line-height: 35px; padding: 0 10px; overflow: hidden; color: #8a8a8a; cursor: pointer; outline: none; }
 .page .data-list .list li span{ float: left; width: 10%; height: 100%; color: #515151; }
 .page .data-list .list li p{ float: left; width: 70%; height: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .page .data-list .list li time{ float: right; width: 20%; font-size: small; text-align: right; }

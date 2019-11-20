@@ -13,17 +13,21 @@ export class DemoComponent implements OnInit {
     public tableData:Array<any> = [];
     public current:number = 0;
     public limit:number = 5;
+    public title:string = "综合";
     constructor(private api: ApiServer){
 
     }
     ngOnInit(){
         this.getList();
     }
-    change( id ){
-        this.typeId = id;
+    change({ index , title } ){
+        this.tableData = [];
+        this.typeId = index;
+        this.title = title;
+        this.getList();
     }
     async getList(){
-        let data = await this.api.getArticleListServe({type_id:this.typeId},[this.current,this.limit,this.typeId] );
+        let data = await this.api.getArticleListServe({type_id:this.typeId},[this.current,this.limit] );
         if( data.code == 200 ) {
             this.tableData = data.result.list;
         }

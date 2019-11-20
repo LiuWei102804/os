@@ -30,14 +30,16 @@ export class SubMenuComponent implements OnInit ,AfterViewInit, OnDestroy {
             initialSlide: this.activeIndex ,
             on : {
                 tap : function () {
-                    let id;
+                    let index,title;
 
                     if( this.clickedIndex == 0 ) {
-                        id = "0";
+                        index = "0";
+                        title = "综合";
                     } else {
-                        id = _self.menus[Math.max(0,this.clickedIndex - 1)]._id;
+                        index = _self.menus[Math.max(0,this.clickedIndex - 1)]._id;
+                        title = _self.menus.filter(item => item._id == index)[0].title;
                     }
-                    _self.change.emit( id );
+                    _self.change.emit({ index , title });
                     _self.activeIndex = this.clickedIndex;
 
                 } ,

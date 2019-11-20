@@ -23,7 +23,11 @@ export class SubMenuComponent implements OnInit ,AfterViewInit {
 
     }
     handle(index){
-        this.change.emit( index );
+        let title = "综合";
+        if( index != 0 ) {
+            title = this.menus.filter(item => item._id == index)[0].title;
+        }
+        this.change.emit({index , title});
     }
     getList(){
 

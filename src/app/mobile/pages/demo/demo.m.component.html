@@ -2,8 +2,9 @@
 <section class="page-m">
     <app-search></app-search>
     <div class="block">
-        <span class="title">综合</span>
-        <ul class="list">
+        <span class="title">{{title}}</span>
+        <app-empty *ngIf="tableData.length == 0"></app-empty>
+        <ul class="list" *ngIf="tableData.length > 0">
             <li *ngFor="let item of tableData" [routerLink]="'/mobile/detail/'+ item._id">
                 <p><span>【{{item.sub_menu}}】</span>{{ item.title }}</p>
                 <time class="time"><i class="fa fa-clock-o"></i>{{ item.update_time }}</time>

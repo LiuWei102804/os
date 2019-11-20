@@ -22,7 +22,8 @@
                             <i class="fa fa-angle-right"></i>
                         </span>
                     </ng-template>
-                    <ul class="hot">
+                    <app-empty *ngIf="tableData.length == 0"></app-empty>
+                    <ul class="hot" *ngIf="tableData.length > 0">
                         <li *ngFor="let item of tableData" class="text item" [routerLink]="'/detail/'+ item._id">
                             <p>{{ item.title }}</p>
                             <!--<span class="good">-->
@@ -36,13 +37,13 @@
                             </time>
                         </li>
                     </ul>
-                    <p class="get-more" routerLink="/text">
+                    <p class="get-more" routerLink="/text" *ngIf="tableData.length > 0">
                         查看更多
                         <i class="fa fa-hand-o-up"></i>
                     </p>
                 </el-card>
             </div>
-            <div class="block inline">
+            <div class="block inline right">
                 <el-card >
                     <ng-template #header>
                         <span class="animal">动物的一瞬间</span>
@@ -50,6 +51,7 @@
                             <i class="fa fa-angle-right"></i>
                         </span>
                     </ng-template>
+
                     <ul class="hot">
                         <li>
                             <div>
@@ -78,7 +80,8 @@
                         <i class="fa fa-angle-right"></i>
                     </span>
                 </ng-template>
-                <ul class="hot">
+                <app-empty *ngIf="tableData.length == 0"></app-empty>
+                <ul class="hot" *ngIf="tableData.length > 0">
                     <li *ngFor="let item of newTableData" class="text item" [routerLink]="'/detail/'+ item._id">
                         <p>{{ item.title }}</p>
                         <!--<span class="good">-->
@@ -91,14 +94,14 @@
                         </time>
                     </li>
                 </ul>
-                <p class="get-more" routerLink="/text">
+                <p class="get-more" routerLink="/text" *ngIf="tableData.length > 0">
                     查看更多
                     <i class="fa fa-hand-o-up"></i>
                 </p>
             </el-card>
         </div>
 
-        <div class="block inline">
+        <div class="block inline right">
             <el-card >
                 <ng-template #header>
                     <span class="bqb">表情包系列</span>

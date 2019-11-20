@@ -7,6 +7,7 @@
     <div class="swiper-pagination"></div>
 </div>
 
+
 <section class="page">
     <app-search></app-search>
     <div class="content">
@@ -15,14 +16,15 @@
             <span class="more" routerLink="/mobile/text">more
                 <i class="fa fa-angle-right"></i>
             </span>
-            <ul class="list">
+            <app-empty *ngIf="tableData.length == 0"></app-empty>
+            <ul class="list" *ngIf="tableData.length > 0">
                 <li *ngFor="let item of tableData" [routerLink]="'/mobile/detail/'+ item._id">
                     <p>{{ item.title }}</p>
                     <!--<span class="good"><i class="fa fa-thumbs-up"></i> 356 </span>-->
                     <time class="time"><i class="fa fa-clock-o"></i>{{ item.update_time }}</time>
                 </li>
             </ul>
-            <p class="get-more" routerLink="/mobile/text">
+            <p class="get-more" routerLink="/mobile/text" *ngIf="tableData.length > 0">
                 查看更多
                 <i class="fa fa-hand-o-up"></i>
             </p>

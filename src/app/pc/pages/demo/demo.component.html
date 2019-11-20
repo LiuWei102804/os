@@ -5,16 +5,17 @@
     <div class="data-list">
         <el-card >
             <ng-template #header>
-                <span>冷笑话</span>
+                <span>{{title}}</span>
             </ng-template>
-            <ul class="list">
+            <app-empty *ngIf="tableData.length == 0"></app-empty>
+            <ul class="list" *ngIf="tableData.length > 0">
                 <li *ngFor="let item of tableData" [routerLink]="'/detail/'+item._id">
                     <span>【{{item.sub_menu}}】</span>
                     <p [innerHTML]="item.title"></p>
                     <time>{{ item.update_time }}</time>
                 </li>
             </ul>
-            <el-pagination [total]="0" [layout]="['prev', 'pager', 'next']">
+            <el-pagination [total]="0" [layout]="['prev', 'pager', 'next']" *ngIf="tableData.length > 0">
             </el-pagination>
         </el-card>
     </div>
