@@ -18,7 +18,7 @@
             </span>
             <app-empty *ngIf="tableData.length == 0"></app-empty>
             <ul class="list" *ngIf="tableData.length > 0">
-                <li *ngFor="let item of tableData" [routerLink]="'/mobile/detail/'+ item._id">
+                <li *ngFor="let item of tableData" [routerLink]="'/mobile/detail/'+ item.link_id">
                     <p>{{ item.title }}</p>
                     <!--<span class="good"><i class="fa fa-thumbs-up"></i> 356 </span>-->
                     <time class="time"><i class="fa fa-clock-o"></i>{{ item.update_time }}</time>
