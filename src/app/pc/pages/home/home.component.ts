@@ -16,8 +16,13 @@ export class HomeComponent implements OnInit, AfterViewInit{
     public banner:Array<any> = [];
     public search:string = "";
     public tableData:Array<any> = [];
+    public picList:Array<any> = [];
     public current:number = 0;
     public limit:number = 5;
+
+    public picCurr:number = 0;
+    public picLimit:number = 4;
+
     public sort = {
         read_number : true
     };
@@ -53,6 +58,7 @@ export class HomeComponent implements OnInit, AfterViewInit{
         await this.getBanner();
         await this.getList();
         await this.getNewPublish();
+        await this.getPicture();
     }
     async getBanner(){
         let data = await this.api.getBannerServe();
@@ -70,6 +76,12 @@ export class HomeComponent implements OnInit, AfterViewInit{
         let data = await this.api.getArticleListServe( this.newPublish ,[this.current,this.limit] );
         if( data.code == 200 ) {
             this.newTableData = data.result.list;
+        }
+    }
+    async getPicture(){
+        let data = await this.api.getPictureServe( [this.picCurr,this.picLimit] );
+        if( data.code == 200 ) {
+            this.picList = data.result.list;
         }
     }
 
