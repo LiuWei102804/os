@@ -12,8 +12,13 @@ import { ApiServer } from "../../../server/api.server";
 export class HomeMComponent implements OnInit , AfterViewInit{
     public banner:Array<any> = [];
     public tableData:Array<any> = [];
+    public picList:Array<any> = [];
     public current:number = 0;
     public limit:number = 5;
+
+    public picCurr:number = 0;
+    public picLimit:number = 4;
+
     public sort = {
         read_number : true
     };
@@ -23,6 +28,7 @@ export class HomeMComponent implements OnInit , AfterViewInit{
     async ngOnInit(){
         await this.getBanner();
         await this.getList();
+        await this.getPicture();
     }
     ngAfterViewInit(){
         new Swiper('.swiper-container', {
@@ -51,4 +57,11 @@ export class HomeMComponent implements OnInit , AfterViewInit{
             this.tableData = data.result.list;
         }
     }
+    async getPicture(){
+        let data = await this.api.getPictureServe( [this.picCurr,this.picLimit] );
+        if( data.code == 200 ) {
+            this.picList = data.result.list;
+        }
+    }
+
 }

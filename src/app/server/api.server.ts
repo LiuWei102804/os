@@ -11,6 +11,7 @@ export class ApiServer {
     public static getArticleListUrl:string = "/web/article/getArticleList";
 
     public static getBannerUrl:string = "/web/banner/getBanner";
+    public static getPicrureUrl:string = "/web/picture/getPicture";
 
 
 
@@ -37,8 +38,14 @@ export class ApiServer {
         return this.http.post( url , options ).toPromise();
     }
 
-    public getBannerServe( ): Promise<any>{
+    public getBannerServe(): Promise<any>{
         let url = ApiServer.getBannerUrl;
+
+        return this.http.get( url ).toPromise();
+    }
+
+    public getPictureServe( params: Array<any> ): Promise<any>{
+        let url = ApiServer.getPicrureUrl + '/' + params.join("/");
 
         return this.http.get( url ).toPromise();
     }

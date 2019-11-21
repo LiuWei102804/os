@@ -53,19 +53,16 @@
             <span class="more" routerLink="/text">more
                 <i class="fa fa-angle-right"></i>
             </span>
-            <ul class="list">
-                <li>
-                    <div>
-                        <img src="assets/dog1.jpg" alt="" />
-                        <span>秋田犬</span>
+            <app-empty *ngIf="picList.length == 0"></app-empty>
+            <div class="list" *ngIf="picList.length > 0">
+
+                    <div *ngFor="let pic of picList">
+                        <img [src]="pic.img" alt="" />
+                        <span>{{pic.title}}</span>
                     </div>
-                    <div>
-                        <img src="assets/bird1.jpg" alt="" />
-                        <span>猫头鹰</span>
-                    </div>
-                </li>
-            </ul>
-            <p class="get-more" routerLink="/text">
+
+            </div>
+            <p class="get-more" routerLink="/text" *ngIf="picList.length > 0">
                 查看更多
                 <i class="fa fa-hand-o-up"></i>
             </p>
