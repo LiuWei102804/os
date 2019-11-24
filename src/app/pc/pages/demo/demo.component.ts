@@ -17,8 +17,8 @@ export class DemoComponent implements OnInit {
     constructor(private api: ApiServer){
 
     }
-    ngOnInit(){
-        this.getList();
+    async ngOnInit(){
+        await this.getList();
     }
     change({ index , title } ){
         this.tableData = [];

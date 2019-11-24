@@ -17,16 +17,20 @@ export class SubMenuComponent implements OnInit ,AfterViewInit, OnDestroy {
     constructor(private api: ApiServer){
 
     }
-    ngOnInit(){
-
-
+    async ngOnInit(){
+        await this.getMenus();
     }
     ngAfterViewInit(){
+
+    }
+    ngOnDestroy(){
+
+        //this.swiper.destroy(true ,  true );
+    }
+    initSwiper(){
         const _self = this;
-        _self.swiper = new Swiper( ".swiper-container", {
+        this.swiper = new Swiper( ".swiper-container", {
             slidesPerView: 4.3 ,
-            observer:true,//修改swiper自己或子元素时，自动初始化swiper
-            observeParents:true ,//修改swiper的父元素时，自
             initialSlide: this.activeIndex ,
             on : {
                 tap : function () {
@@ -41,30 +45,19 @@ export class SubMenuComponent implements OnInit ,AfterViewInit, OnDestroy {
                     }
                     _self.change.emit({ index , title });
                     _self.activeIndex = this.clickedIndex;
-
-                } ,
-                init(){
-                    _self.getMenus();
                 }
             }
         });
     }
-    ngOnDestroy(){
 
-        //this.swiper.destroy(true ,  true );
-    }
-
-    getMenus(): void{
-        this.api.getMenuServe( [this.category] ).then( res => {
-            switch ( res.code ) {
-                case 200 :
-                    this.menus = res.result;
-                    break;
-                default :
-
-            }
-        },err => {
-
+    async getMenus() {
+        let data = await this.api.getMenuServe( [this.category] );
+        if( data.code == 200 ) {
+            this.menus = data.result;
+        }
+        let t = setTimeout(() => {
+            this.initSwiper();
+            clearTimeout( t );
         })
     }
 

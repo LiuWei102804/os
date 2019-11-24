@@ -6,12 +6,16 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
     providedIn : "root"
 })
 export class ApiServer {
+    public static getHomeRecommendUrl:string = "/web/menu/getHomeRecommend";
+
+
     public static getMenuUrl:string = "/web/menu/getMenus";
     public static getArticleByIdUrl:string = "/web/article/getById";
     public static getArticleListUrl:string = "/web/article/getArticleList";
 
     public static getBannerUrl:string = "/web/banner/getBanner";
     public static getPicrureUrl:string = "/web/picture/getPicture";
+    public static getPicListUrl:string = "/web/picture/getPicList";
 
 
 
@@ -20,6 +24,13 @@ export class ApiServer {
         //this.httpHeaders = new HttpHeaders();
 
     }
+    public getHomeRecommendServe( params: Array<any> ): Promise<any>{
+        let url = ApiServer.getHomeRecommendUrl + '/' + params.join("/");
+
+        return this.http.get( url ).toPromise();
+    }
+
+
     public getMenuServe( params: Array<any> ): Promise<any>{
         let url = ApiServer.getMenuUrl + '/' + params.join("/");
 
@@ -48,5 +59,11 @@ export class ApiServer {
         let url = ApiServer.getPicrureUrl + '/' + params.join("/");
 
         return this.http.get( url ).toPromise();
+    }
+
+    public getPicListServe( options = {} , params: Array<any> ): Promise<any>{
+        let url = ApiServer.getPicListUrl + '/' + params.join("/");
+
+        return this.http.post( url, options ).toPromise();
     }
 }

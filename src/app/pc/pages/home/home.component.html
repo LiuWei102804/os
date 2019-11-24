@@ -14,17 +14,20 @@
 
     <div class="content">
         <div class="left">
-            <div class="block">
+            <div class="block" *ngFor="let text of recommendText">
                 <el-card >
                     <ng-template #header>
-                        <span class="phb">阅读排行榜</span>
+                        <span class="phb">
+                            <img [src]="text.icon" alt="" />
+                            {{ text.title }}
+                        </span>
                         <span class="more" routerLink="/text">more
                             <i class="fa fa-angle-right"></i>
                         </span>
                     </ng-template>
-                    <app-empty *ngIf="tableData.length == 0"></app-empty>
-                    <ul class="hot" *ngIf="tableData.length > 0">
-                        <li *ngFor="let item of tableData" class="text item" [routerLink]="'/detail/'+ item._id">
+                    <app-empty *ngIf="text.list.length == 0"></app-empty>
+                    <ul class="hot" *ngIf="text.list.length > 0">
+                        <li *ngFor="let item of text.list" class="text item" [routerLink]="'/detail/'+ item._id">
                             <p>{{ item.title }}</p>
                             <!--<span class="good">-->
                             <!--<i class="fa fa-thumbs-up"></i>-->
@@ -37,88 +40,91 @@
                             </time>
                         </li>
                     </ul>
-                    <p class="get-more" routerLink="/text" *ngIf="tableData.length > 0">
+                    <p class="get-more" routerLink="/text" *ngIf="text.list.length > 0">
                         查看更多
                         <i class="fa fa-hand-o-up"></i>
                     </p>
                 </el-card>
             </div>
 
-            <div class="block">
-                <el-card >
-                    <ng-template #header>
-                        <span class="cold">最新发布</span>
-                        <span class="more" routerLink="/text">more
-                        <i class="fa fa-angle-right"></i>
-                    </span>
-                    </ng-template>
-                    <app-empty *ngIf="tableData.length == 0"></app-empty>
-                    <ul class="hot" *ngIf="tableData.length > 0">
-                        <li *ngFor="let item of newTableData" class="text item" [routerLink]="'/detail/'+ item._id">
-                            <p>{{ item.title }}</p>
-                            <time class="time">
-                                <i class="fa fa-clock-o"></i>
-                                {{ item.add_time }}
-                            </time>
-                        </li>
-                    </ul>
-                    <p class="get-more" routerLink="/text" *ngIf="tableData.length > 0">
-                        查看更多
-                        <i class="fa fa-hand-o-up"></i>
-                    </p>
-                </el-card>
-            </div>
+            <!--<div class="block">-->
+                <!--<el-card >-->
+                    <!--<ng-template #header>-->
+                        <!--<span class="cold">最新发布</span>-->
+                        <!--<span class="more" routerLink="/text">more-->
+                        <!--<i class="fa fa-angle-right"></i>-->
+                    <!--</span>-->
+                    <!--</ng-template>-->
+                    <!--<app-empty *ngIf="tableData.length == 0"></app-empty>-->
+                    <!--<ul class="hot" *ngIf="tableData.length > 0">-->
+                        <!--<li *ngFor="let item of newTableData" class="text item" [routerLink]="'/detail/'+ item._id">-->
+                            <!--<p>{{ item.title }}</p>-->
+                            <!--<time class="time">-->
+                                <!--<i class="fa fa-clock-o"></i>-->
+                                <!--{{ item.add_time }}-->
+                            <!--</time>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                    <!--<p class="get-more" routerLink="/text" *ngIf="tableData.length > 0">-->
+                        <!--查看更多-->
+                        <!--<i class="fa fa-hand-o-up"></i>-->
+                    <!--</p>-->
+                <!--</el-card>-->
+            <!--</div>-->
         </div>
 
 
         <div class="right">
-            <div class="block inline">
+            <div class="block inline" *ngFor="let pic of recommendPic">
                 <el-card >
                     <ng-template #header>
-                        <span class="animal">动物的一瞬间</span>
+                        <span class="phb">
+                            <img [src]="pic.icon" alt="" />
+                            {{pic.title}}
+                        </span>
                         <span class="more" routerLink="/emoticon">more
                             <i class="fa fa-angle-right"></i>
                         </span>
                     </ng-template>
-                    <app-empty *ngIf="picList.length == 0"></app-empty>
-                    <div class="hot" *ngIf="picList.length > 0">
-                        <div *ngFor="let pic of picList">
-                            <img [src]="pic.img" alt="" />
-                            <span>{{pic.title}}</span>
+                    <app-empty *ngIf="pic.list.length == 0"></app-empty>
+                    <div class="hot" *ngIf="pic.list.length > 0">
+                        <div *ngFor="let p of pic.list">
+                            <img [src]="p.img" alt="" />
+                            <span>{{p.title}}</span>
                         </div>
                     </div>
-                    <p class="get-more" routerLink="/emoticon" *ngIf="picList.length > 0">
+                    <p class="get-more" routerLink="/emoticon" *ngIf="pic.list.length > 0">
                         查看更多
                         <i class="fa fa-hand-o-up"></i>
                     </p>
                 </el-card>
             </div>
-            <div class="block inline">
-                <el-card >
-                    <ng-template #header>
-                        <span class="bqb">表情包系列</span>
-                        <span class="more" routerLink="/emoticon">more
-                            <i class="fa fa-angle-right"></i>
-                        </span>
-                    </ng-template>
-                    <ul class="hot">
-                        <li>
-                            <div>
-                                <img src="assets/bqb1.jpeg" alt="" />
-                                <span> 打起来</span>
-                            </div>
-                            <div>
-                                <img src="assets/bqb2.jpeg" alt="" />
-                                <span>怼死你</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <p class="get-more" routerLink="/emoticon">
-                        查看更多
-                        <i class="fa fa-hand-o-up"></i>
-                    </p>
-                </el-card>
-            </div>
+            <!--<div class="block inline">-->
+                <!--<el-card >-->
+                    <!--<ng-template #header>-->
+                        <!--<span class="bqb">表情包系列</span>-->
+                        <!--<span class="more" routerLink="/emoticon">more-->
+                            <!--<i class="fa fa-angle-right"></i>-->
+                        <!--</span>-->
+                    <!--</ng-template>-->
+                    <!--<ul class="hot">-->
+                        <!--<li>-->
+                            <!--<div>-->
+                                <!--<img src="assets/bqb1.jpeg" alt="" />-->
+                                <!--<span> 打起来</span>-->
+                            <!--</div>-->
+                            <!--<div>-->
+                                <!--<img src="assets/bqb2.jpeg" alt="" />-->
+                                <!--<span>怼死你</span>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                    <!--<p class="get-more" routerLink="/emoticon">-->
+                        <!--查看更多-->
+                        <!--<i class="fa fa-hand-o-up"></i>-->
+                    <!--</p>-->
+                <!--</el-card>-->
+            <!--</div>-->
         </div>
 
 

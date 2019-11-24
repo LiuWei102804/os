@@ -11,56 +11,53 @@ import { ApiServer } from "../../../server/api.server";
 
 export class HomeMComponent implements OnInit , AfterViewInit{
     public banner:Array<any> = [];
-    public tableData:Array<any> = [];
-    public picList:Array<any> = [];
-    public current:number = 0;
-    public limit:number = 5;
+    public recommendText:Array<any> = [];
+    public recommendPic:Array<any> = [];
 
-    public picCurr:number = 0;
-    public picLimit:number = 4;
-
-    public sort = {
-        read_number : true
-    };
+    public swiper:Swiper;
     constructor(private active: ActivatedRoute, private api :ApiServer ){
 
     }
     async ngOnInit(){
         await this.getBanner();
-        await this.getList();
-        await this.getPicture();
+        await this.getRecommendText();
+        await this.getRecommendPic();
     }
     ngAfterViewInit(){
-        new Swiper('.swiper-container', {
-            observer:true,//修改swiper自己或子元素时，自动初始化swiper
-            observeParents:true ,//修改swiper的父元素时，自
-            autoplay: {
-                disableOnInteraction: false,
-            } ,
-            loop: true ,
 
-            // 如果需要分页器
-            pagination: {
-                el: '.swiper-pagination'
-            }
-        });
     }
     async getBanner(){
         let data = await this.api.getBannerServe()
         if( data.code == 200 ) {
             this.banner = data.result;
         }
+        let t = setTimeout(() => {
+            this.initSwiper();
+            clearTimeout( t );
+        })
     }
-    async getList(){
-        let data = await this.api.getArticleListServe( this.sort ,[this.current,this.limit] );
-        if( data.code == 200 ) {
-            this.tableData = data.result.list;
+    initSwiper(){
+        this.swiper = new Swiper('.swiper-container', {
+            autoplay: {
+                disableOnInteraction: false,
+            } ,
+            loop: true ,
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination'
+            }
+        });
+    }
+    async getRecommendText(){
+        let textData = await this.api.getHomeRecommendServe( [1,1] );
+        if( textData.code == 200 ) {
+            this.recommendText = textData.result;
         }
     }
-    async getPicture(){
-        let data = await this.api.getPictureServe( [this.picCurr,this.picLimit] );
-        if( data.code == 200 ) {
-            this.picList = data.result.list;
+    async getRecommendPic(){
+        let textData = await this.api.getHomeRecommendServe( [2,2] );
+        if( textData.code == 200 ) {
+            this.recommendPic = textData.result;
         }
     }
 

@@ -6,4 +6,4 @@
 .page .data-list .list li{ width: 25%; height:200px; padding:.3%; overflow: hidden; color: #8a8a8a; float: left; }
 .page .data-list .list li img{ width: 100%; height: 150px;}
 .page .data-list .list li p{ width: 100%; height: 30px; line-height: 30px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 14px;     }
-.page .data-list .list li time{ font-size: small; float: right; text-align: right; }
+.page .data-list .list li time{ font-size: small; float: right; text-align: right; width: 60%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }

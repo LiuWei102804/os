@@ -16,8 +16,8 @@ export class SubMenuComponent implements OnInit ,AfterViewInit {
     constructor(private api: ApiServer,private active: ActivatedRoute){
 
     }
-    ngOnInit(){
-        this.getMenus();
+    async ngOnInit(){
+        await this.getMenus();
     }
     ngAfterViewInit(){
 
@@ -32,17 +32,10 @@ export class SubMenuComponent implements OnInit ,AfterViewInit {
     getList(){
 
     }
-    getMenus(): void{
-        this.api.getMenuServe( [this.category] ).then( res => {
-            switch ( res.code ) {
-                case 200 :
-                    this.menus = res.result;
-                    break;
-                default :
-
-            }
-        },err => {
-
-        })
+    async getMenus(){
+        let data = await this.api.getMenuServe( [this.category] )
+        if( data.code == 200 ) {
+            this.menus = data.result;
+        }
     }
 }

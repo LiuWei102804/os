@@ -1,7 +1,7 @@
 <section class="page">
     <app-search></app-search>
 
-    <app-sub-menu category="2"></app-sub-menu>
+    <app-sub-menu category="2" (change)="change($event)"></app-sub-menu>
 
     <div class="data-list">
         <el-card >
@@ -11,7 +11,7 @@
             <ul class="list">
                 <li *ngFor="let item of tableData">
                     <img [src]="item.img" alt="" />
-                    <p>【{{ item.type }}】<time>{{ item.time }}</time></p>
+                    <p>【{{ item.sub_menu }}】<time>{{ item.title }}</time></p>
 
                 </li>
             </ul>

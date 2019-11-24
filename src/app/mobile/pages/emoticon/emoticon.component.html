@@ -1,20 +1,15 @@
-<app-sub-menu category="2"></app-sub-menu>
+<app-sub-menu category="2" (change)="change($event)"></app-sub-menu>
 <section class="page-m">
     <app-search></app-search>
 
     <div class="block">
-        <span class="title">那些动物</span>
-        <ul class="list">
-            <li>
-                <div>
-                    <img src="assets/dog1.jpg" alt="" />
-                    <span>秋田犬</span>
-                </div>
-                <div>
-                    <img src="assets/bird1.jpg" alt="" />
-                    <span>猫头鹰</span>
-                </div>
-            </li>
-        </ul>
+        <span class="title">{{title}}</span>
+        <app-empty *ngIf="tableData.length == 0"></app-empty>
+        <div class="list" *ngIf="tableData.length > 0">
+            <div *ngFor="let item of tableData">
+                <img [src]="item.img" alt="" />
+                <span>{{ item.title }}</span>
+            </div>
+        </div>
     </div>
 </section>

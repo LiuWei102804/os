@@ -14,21 +14,22 @@
 .content .right{ width: 38%; float: right; overflow: hidden; }
 .content .block{ width: 100%; height: auto; float: left;  margin: 0 0 20px;}
 .content .block .more{ font-style: normal; font-size: 12px; color: #8a8a8a; float: right; outline: none; cursor: pointer; }
-.content .block .phb{ padding-left: 30px; background-image: url("/assets/phb.png"); background-repeat: no-repeat; background-size: 20px; }
-.content .block .cold{ padding-left: 30px; background-image: url("/assets/lg.png"); background-repeat: no-repeat; background-size: 20px; }
-.content .block .animal{ padding-left: 30px; background-image: url("/assets/animal.png"); background-repeat: no-repeat; background-size: 20px; }
-.content .block .bqb{ padding-left: 30px; background-image: url("/assets/bqb.png"); background-repeat: no-repeat; background-size: 20px; }
+.content .block .phb{padding: 5px 0 5px 15px;}
+.content .block .phb img{ width: 24px; display: block; float: left; }
+
 .content .block .hot { width: 100%; height: auto; outline: none; border-bottom: 1px solid #bfbfbf; padding: 5px 0; overflow: hidden; position: relative;}
-.content .block .hot p{ width: 75%; height:100%; overflow: hidden; line-height: 20px; font-size: 14px; display: -webkit-box; -webkit-line-clamp: 2;  -webkit-box-orient: vertical; color: #8a8a8a; text-indent: 2em; float: left; }
+.content .block .hot li{ overflow: hidden; padding: 5px 0; margin-top: 5px;  position: relative; border-bottom: 1px solid #e6ebf5; line-height: 30px; }
+.content .block .hot li:last-child{ border-bottom: none; }
+.content .block .hot p{ width: 75%; height:100%; overflow: hidden; line-height: 20px; font-size: 14px; display: -webkit-box; -webkit-line-clamp: 2;  -webkit-box-orient: vertical; color: #8a8a8a; text-indent: 2em; float: left; margin-bottom: 10px; }
 .content .block .hot .good{ width: 18%; height: 20px; font-size: 12px; position: absolute; right: 0%; top: 5px; color:#bfbfbf;  }
 .content .block .hot .good i{ color: #8a8a8a; font-size: 16px; }
 .content .block .hot .time{  position: absolute; right: 0; bottom: 5px; height: 20px;  color:#bfbfbf; font-size: 12px;}
 .content .block .hot .time i{ color: #8a8a8a; font-size: 16px; }
 .content .block .get-more{ width: 100%; height: 32px; line-height: 32px; font-size: 15px; text-align: center; cursor: pointer; outline:none }
 
-.content .inline{ width: 100%;}
+.content .inline{ width: 100%;  }
 .content .inline .hot div{ width: 50%; height: 230px; padding:0 5px; background: #fff; float: left; }
 .content .inline .hot div img{ width: 100%; height: 200px; }
-.content .inline .hot span{overflow: hidden; font-size: 14px; color: #8a8a8a; }
+.content .inline .hot span{overflow: hidden; font-size: 14px; color: #8a8a8a; white-space: nowrap; text-overflow: ellipsis; width: 100%; display: block; }
 
 .right{ float: right; }

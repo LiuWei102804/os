@@ -9,7 +9,7 @@ import Swiper from "swiper";
 })
 
 export class DemoMComponent implements OnInit ,AfterViewInit {
-    public swiper:Swiper;
+    public search:string = "";
     public activeIndex:number = 0;
     public typeId:string = "0";
     public tableData:Array<any> = [];
@@ -19,19 +19,11 @@ export class DemoMComponent implements OnInit ,AfterViewInit {
     constructor(private api: ApiServer){
 
     }
-    ngOnInit(){
-        this.getList();
+    async ngOnInit(){
+        await this.getList();
     }
     ngAfterViewInit(){
-        const _self = this;
-        this.swiper = new Swiper('.swiper-container', {
-            slidesPerView: 4.3 ,
-            on : {
-                tap : function () {
-                    _self.activeIndex = this.clickedIndex;
-                }
-            }
-        });
+
     }
     change({ index , title } ){
         this.tableData = [];
