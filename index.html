@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+     var findOneWeekDay = function ( YEAR , MONTH , DAY ){
+        let calendarDays = [];
+        let sunday,prevMonthDay,week,date,disparity,day_count;
+
+
+        date = new Date(`${YEAR}-${findOneWeekDay.fillZero(MONTH)}-${findOneWeekDay.fillZero(DAY)}`);
+        week = date.getDay();
+        day_count = getDays( YEAR , MONTH );
+        if( DAY < 7 ) {
+            let j = 0;
+            if( week == 0 ) {
+                sunday = week;
+                for (let i = DAY; i < DAY + 7; i++) {
+                    let obj = {
+                        day: i,
+                        year: YEAR,
+                        month: MONTH,
+                        toDay: i == DAY,
+                        week: findOneWeekDay.getWeek(j)
+                    };
+                    calendarDays.push(obj);
+                    j++;
+                }
+            } else {
+                sunday = DAY - week;
+                if( sunday < 0 ) {          //跨月
+                    date.setDate(0);
+                    prevMonthDay = date.getDate();      //上月最后一天
+                    let prevMonth = date.getMonth() + 1, prevYear = date.getFullYear();
+
+                    sunday = prevMonthDay - Math.abs( sunday );
+
+                    for (let i = sunday; i <= prevMonthDay; i++) {
+                        let obj = {
+                            day: i,
+                            year: prevYear,
+                            month: prevMonth,
+                            toDay: false,
+                            week: findOneWeekDay.getWeek(j)
+                        };
+                        calendarDays.push(obj);
+                        j++;
+                    }
+                    disparity = 7 - calendarDays.length;
+                    for (let i = 1; i <= disparity; i++) {
+                        let obj = {
+                            day: i,
+                            year: YEAR,
+                            month: MONTH,
+                            toDay: i == DAY,
+                            week: findOneWeekDay.getWeek(j)
+                        };
+                        calendarDays.push(obj);
+                        j++;
+                    }
+                } else {
+                    for (let i = sunday; i < sunday + 7; i++) {
+                        let obj = {
+                            day: i,
+                            year: YEAR,
+                            month: MONTH,
+                            toDay: i == DAY,
+                            week: findOneWeekDay.getWeek(j)
+                        };
+                        calendarDays.push(obj);
+                        j++;
+                    }
+                }
+            }
+        } else if( DAY + 7 > day_count ) {
+            let j = 0,nextMonth = MONTH,nextYear = YEAR;
+            if( MONTH == 12 ) {
+                nextMonth = 1;
+                nextYear = YEAR + 1;
+            } else {
+                nextMonth += 1;
+            }
+
+            sunday = DAY - week;
+            for( let i = sunday; i <= Math.min( day_count , sunday + 6 ); i ++ ) {
+                let obj = {
+                    day : i ,
+                    year : YEAR  ,
+                    month : MONTH ,
+                    toDay : i == DAY ,
+                    week : findOneWeekDay.getWeek( j )
+                };
+                calendarDays.push( obj );
+                j ++;
+            }
+            disparity = Math.max( 7 - calendarDays.length , 0 );
+
+            for( let i = 1; i <= disparity; i ++ ) {
+                let obj = {
+                    day : i ,
+                    year : nextYear  ,
+                    month : nextMonth ,
+                    toDay : false ,
+                    week : findOneWeekDay.getWeek( j )
+                };
+                calendarDays.push( obj );
+                j ++;
+            }
+        } else {
+            sunday = DAY - week;
+            for( let i = sunday, j = 0; i < sunday + 7; i ++ , j ++ ) {
+                let obj = {
+                    day : i ,
+                    year : YEAR  ,
+                    month : MONTH ,
+                    toDay : i == DAY ,
+                    week : findOneWeekDay.getWeek( j )
+                };
+                calendarDays.push( obj );
+            }
+        };
+        return calendarDays;
+    };
+    findOneWeekDay.fillZero = function ( num ) {
+        return num < 10 ? '0' + num : String( num );
+    }
+    findOneWeekDay.getWeek = function ( weekCode ){
+        switch( Number( weekCode ) ){
+            case 0:
+                return '日';
+            case 1:
+                return '一';
+            case 2:
+                return '二';
+            case 3:
+                return '三';
+            case 4:
+                return '四';
+            case 5:
+                return '五';
+            case 6:
+                return '六';
+        }
+    };
+     //是否闰年
+     function isLeapYear ( year ) {
+         return (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0);
+     };
+     //获取月份天数
+     function getDays ( year , month ) {
+         switch( Number( month ) ) {
+             case 1 :
+             case 3 :
+             case 5 :
+             case 7 :
+             case 8 :
+             case 10 :
+             case 12 :
+                 return 31;
+             case 4 :
+             case 6 :
+             case 9 :
+             case 11 :
+                 return 30;
+             default :
+                 if( isLeapYear( year ) ) {
+                     return 29;
+                 } else {
+                     return 28;
+                 }
+         }
+     };
+</script>
+</body>
+</html>
