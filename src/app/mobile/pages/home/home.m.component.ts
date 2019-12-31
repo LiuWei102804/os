@@ -15,6 +15,7 @@ export class HomeMComponent implements OnInit , AfterViewInit{
     public recommendPic:Array<any> = [];
 
     public swiper:Swiper;
+    public saveImg:String;
     constructor(private active: ActivatedRoute, private api :ApiServer, private el:ElementRef){
 
     }
@@ -25,6 +26,7 @@ export class HomeMComponent implements OnInit , AfterViewInit{
             const canvas = this.el.nativeElement.querySelector('#myCanvas');
             const ctx = canvas.getContext('2d');
             ctx.drawImage(img,0,0,canvas.width,canvas.height)
+            this.saveImg = canvas.toDataURL('image/jpeg')
         }
         // console.log( )
         // await this.getBanner();
