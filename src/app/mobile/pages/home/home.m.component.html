@@ -9,77 +9,78 @@
 
 
 <section class="page">
-    <app-search></app-search>
-    <div class="content">
-        <div class="block" *ngFor="let text of recommendText">
-            <span class="phb">
-                <img [src]="text.icon" alt="" />
-                {{ text.title }}
-            </span>
-            <span class="more" routerLink="/mobile/text">more
-                <i class="fa fa-angle-right"></i>
-            </span>
-            <app-empty *ngIf="text.list.length == 0"></app-empty>
-            <ul class="list" *ngIf="text.list.length > 0">
-                <li *ngFor="let item of text.list" [routerLink]="'/mobile/detail/'+ item._id">
-                    <p>{{ item.title }}</p>
-                    <!--<span class="good"><i class="fa fa-thumbs-up"></i> 356 </span>-->
-                    <time class="time"><i class="fa fa-clock-o"></i>{{ item.update_time }}</time>
-                </li>
-            </ul>
-            <p class="get-more" routerLink="/mobile/text" *ngIf="text.list.length > 0">
-                查看更多
-                <i class="fa fa-hand-o-up"></i>
-            </p>
-        </div>
+    <canvas id="myCanvas"></canvas>
+<!--    <app-search></app-search>-->
+<!--    <div class="content">-->
+<!--        <div class="block" *ngFor="let text of recommendText">-->
+<!--            <span class="phb">-->
+<!--                <img [src]="text.icon" alt="" />-->
+<!--                {{ text.title }}-->
+<!--            </span>-->
+<!--            <span class="more" routerLink="/mobile/text">more-->
+<!--                <i class="fa fa-angle-right"></i>-->
+<!--            </span>-->
+<!--            <app-empty *ngIf="text.list.length == 0"></app-empty>-->
+<!--            <ul class="list" *ngIf="text.list.length > 0">-->
+<!--                <li *ngFor="let item of text.list" [routerLink]="'/mobile/detail/'+ item._id">-->
+<!--                    <p>{{ item.title }}</p>-->
+<!--                    &lt;!&ndash;<span class="good"><i class="fa fa-thumbs-up"></i> 356 </span>&ndash;&gt;-->
+<!--                    <time class="time"><i class="fa fa-clock-o"></i>{{ item.update_time }}</time>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <p class="get-more" routerLink="/mobile/text" *ngIf="text.list.length > 0">-->
+<!--                查看更多-->
+<!--                <i class="fa fa-hand-o-up"></i>-->
+<!--            </p>-->
+<!--        </div>-->
 
 
-        <div class="block" *ngFor="let pic of recommendPic">
-            <span class="phb">
-                <img [src]="pic.icon" alt="" />
-                {{ pic.title }}
-            </span>
-            <span class="more" routerLink="/text">more
-                <i class="fa fa-angle-right"></i>
-            </span>
-            <app-empty *ngIf="pic.list.length == 0"></app-empty>
-            <div class="list" *ngIf="pic.list.length > 0">
+<!--        <div class="block" *ngFor="let pic of recommendPic">-->
+<!--            <span class="phb">-->
+<!--                <img [src]="pic.icon" alt="" />-->
+<!--                {{ pic.title }}-->
+<!--            </span>-->
+<!--            <span class="more" routerLink="/text">more-->
+<!--                <i class="fa fa-angle-right"></i>-->
+<!--            </span>-->
+<!--            <app-empty *ngIf="pic.list.length == 0"></app-empty>-->
+<!--            <div class="list" *ngIf="pic.list.length > 0">-->
 
-                    <div *ngFor="let p of pic.list">
-                        <img [src]="p.img" alt="" />
-                        <span>{{p.title}}</span>
-                    </div>
+<!--                    <div *ngFor="let p of pic.list">-->
+<!--                        <img [src]="p.img" alt="" />-->
+<!--                        <span>{{p.title}}</span>-->
+<!--                    </div>-->
 
-            </div>
-            <p class="get-more" routerLink="/text" *ngIf="pic.list.length > 0">
-                查看更多
-                <i class="fa fa-hand-o-up"></i>
-            </p>
-        </div>
+<!--            </div>-->
+<!--            <p class="get-more" routerLink="/text" *ngIf="pic.list.length > 0">-->
+<!--                查看更多-->
+<!--                <i class="fa fa-hand-o-up"></i>-->
+<!--            </p>-->
+<!--        </div>-->
 
-        <!--<div class="block">-->
-            <!--<span class="bqb">表情包系列</span>-->
-            <!--<span class="more" routerLink="/text">more-->
-                <!--<i class="fa fa-angle-right"></i>-->
-            <!--</span>-->
-            <!--<ul class="list">-->
-                <!--<li>-->
-                    <!--<div>-->
-                        <!--<img src="assets/bqb1.jpeg" alt="" />-->
-                        <!--<span> 打起来</span>-->
-                    <!--</div>-->
-                    <!--<div>-->
-                        <!--<img src="assets/bqb2.jpeg" alt="" />-->
-                        <!--<span>怼死你</span>-->
-                    <!--</div>-->
-                <!--</li>-->
-            <!--</ul>-->
-            <!--<p class="get-more" routerLink="/text">-->
-                <!--查看更多-->
-                <!--<i class="fa fa-hand-o-up"></i>-->
-            <!--</p>-->
-        <!--</div>-->
-    </div>
+<!--        &lt;!&ndash;<div class="block">&ndash;&gt;-->
+<!--            &lt;!&ndash;<span class="bqb">表情包系列</span>&ndash;&gt;-->
+<!--            &lt;!&ndash;<span class="more" routerLink="/text">more&ndash;&gt;-->
+<!--                &lt;!&ndash;<i class="fa fa-angle-right"></i>&ndash;&gt;-->
+<!--            &lt;!&ndash;</span>&ndash;&gt;-->
+<!--            &lt;!&ndash;<ul class="list">&ndash;&gt;-->
+<!--                &lt;!&ndash;<li>&ndash;&gt;-->
+<!--                    &lt;!&ndash;<div>&ndash;&gt;-->
+<!--                        &lt;!&ndash;<img src="assets/bqb1.jpeg" alt="" />&ndash;&gt;-->
+<!--                        &lt;!&ndash;<span> 打起来</span>&ndash;&gt;-->
+<!--                    &lt;!&ndash;</div>&ndash;&gt;-->
+<!--                    &lt;!&ndash;<div>&ndash;&gt;-->
+<!--                        &lt;!&ndash;<img src="assets/bqb2.jpeg" alt="" />&ndash;&gt;-->
+<!--                        &lt;!&ndash;<span>怼死你</span>&ndash;&gt;-->
+<!--                    &lt;!&ndash;</div>&ndash;&gt;-->
+<!--                &lt;!&ndash;</li>&ndash;&gt;-->
+<!--            &lt;!&ndash;</ul>&ndash;&gt;-->
+<!--            &lt;!&ndash;<p class="get-more" routerLink="/text">&ndash;&gt;-->
+<!--                &lt;!&ndash;查看更多&ndash;&gt;-->
+<!--                &lt;!&ndash;<i class="fa fa-hand-o-up"></i>&ndash;&gt;-->
+<!--            &lt;!&ndash;</p>&ndash;&gt;-->
+<!--        &lt;!&ndash;</div>&ndash;&gt;-->
+<!--    </div>-->
 
 </section>
 
