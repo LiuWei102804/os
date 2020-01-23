@@ -33,7 +33,7 @@ export class SubMenuComponent implements OnInit ,AfterViewInit {
 
     }
     async getMenus(){
-        let data = await this.api.getMenuServe( [this.category] )
+        let data = await this.api.getMenuServe()
         if( data.code == 200 ) {
             this.menus = data.result;
         }

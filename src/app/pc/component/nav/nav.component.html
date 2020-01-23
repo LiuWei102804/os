@@ -1,13 +1,24 @@
 <nav class="slide-menu">
     <!--<i class="logo">OS</i>-->
-    <span *ngFor="let m of menus" [routerLink]="m.url" (mouseover)="showQr(m)" (mouseout)="hideQr()">
-        <a href="javascript:void(0)" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">{{ m.title }}</a>
-        <!--<i class="fa" [ngClass]="m.icon"></i>-->
-        <div class="qr" [hidden]="!(m.url=='/mobile' && qr)" (mouseover)="showQr(m)">
-            <i class="fa fa-caret-up"></i>
-            <img src="assets/qrcode.png" width="120"/>
+    <div class="menu" *ngFor="let m of menus" [routerLink]="m.url" (mouseover)="showMenu(m)" (mouseout)="hideMenu(m)">
+        <span style="margin-bottom: 10px;" class="title">
+            <img [src]="m.icon" width="25%" /><br />{{ m.title }}
+        </span>
+        <div class="sub_menu" *ngIf="m.children" [hidden]="!m.show">
+            <div *ngFor="let sub of m.children">
+                <span class="sub_title" (mouseover)="showMenu(sub)" (mouseout)="hideMenu(sub)">{{sub.title}}</span>
+                <div class="three_menu" *ngIf="sub.children" [hidden]="!sub.show" (mouseover)="showMenu(sub)" (mouseout)="hideMenu(sub)">
+                    <span *ngFor="let three of sub.children">{{three.title}}</span>
+                </div>
+            </div>
         </div>
-    </span>
+<!--        <a href="javascript:void(0)" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">{{ m.title }}</a>-->
+<!--        &lt;!&ndash;<i class="fa" [ngClass]="m.icon"></i>&ndash;&gt;-->
+<!--        <div class="qr" [hidden]="!(m.url=='/mobile' && qr)" (mouseover)="showQr(m)">-->
+<!--            <i class="fa fa-caret-up"></i>-->
+<!--            <img src="assets/qrcode.png" width="120"/>-->
+<!--        </div>-->
+    </div>
     <a href="javascript:void(0)" class="user" routerLink="/user">
         <img src="assets/user.png" width="100%" alt="" *ngIf="true" />
     </a>

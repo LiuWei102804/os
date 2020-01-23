@@ -1,13 +1,13 @@
 {
   "/web":{
-    "target":"http://192.168.1.2:9001",
+    "target":"http://192.168.1.3:9001",
     "secure":false,
     "logLevel":"debug",
     "changeOrigin":true
 
   } ,
   "/ueditor":{
-    "target":"http://192.168.1.2:9001",
+    "target":"http://192.168.1.3:9001",
     "secure":false,
     "logLevel":"debug",
     "changeOrigin":true

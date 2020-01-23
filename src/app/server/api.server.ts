@@ -31,8 +31,8 @@ export class ApiServer {
     }
 
 
-    public getMenuServe( params: Array<any> ): Promise<any>{
-        let url = ApiServer.getMenuUrl + '/' + params.join("/");
+    public getMenuServe(): Promise<any>{
+        let url = ApiServer.getMenuUrl;
 
         return this.http.get( url ).toPromise();
     }

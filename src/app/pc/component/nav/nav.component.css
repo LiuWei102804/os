@@ -1,9 +1,17 @@
-.slide-menu{ width: 100%; padding-left: 5%; height: 80px; line-height: 80px; background-image:linear-gradient(to bottom,rgba(57,61,73,.8) 0%,rgba(57,61,73,.5) 50%,rgba(57,61,73,0) 100%); color: #fff; justify-content: space-around; padding-right: 8%; position: fixed; z-index: 3; }
-.slide-menu span{ float:left; width: 10%; cursor: pointer; font-size: 18px; font-weight: bold; font-family: "Microsoft YaHei", "宋体", sans-serif; position: relative; outline: none; text-align: center;}
-.slide-menu span a{ text-decoration: none; color: #fff; position: relative; }
-.slide-menu span a.active:after{ transform: scaleX(1); }
+.slide-menu{ width: 100%; padding-left: 5%; height: 80px;  background:#393D49; color: #fff; justify-content: space-around; padding-right: 8%; position: fixed; z-index: 3; }
+.slide-menu .menu{ float:left; width: 120px; height: 80px; cursor: pointer; font-size: 18px; font-family: "Microsoft YaHei", "宋体", sans-serif; position: relative; outline: none; text-align: center;}
+.slide-menu .menu .sub_menu{ width: 100%; height: auto; line-height: 30px; background:#393D49; position: absolute; top: 90px;}
+.slide-menu .menu .sub_menu:before{content: ''; display: block; width: 0; height: 0; border: 10px solid #393D49; border-left-color: transparent; border-top-color: transparent; border-right-color: transparent; left: 50px; top: -20px; position: absolute;}
+.slide-menu .menu span{ text-align: center; height: 60px; margin-top: 10px; overflow: hidden; display: block; font-size: 16px;  padding: 5px 10px;}
+.slide-menu .menu:hover .title{color:#1296db; }
+.slide-menu .menu .sub_menu span{line-height:30px; height: 40px; overflow: hidden; white-space: nowrap;  font-size: 14px; margin-top: 0;}
+.slide-menu .menu .sub_menu .three_menu{ position: absolute; left: 110%; top: 0; width: 100%; background:#393D49;}
+.slide-menu .menu .sub_menu .three_menu:before{ content: ''; display: block; width: 0; height: 0; border: 10px solid #393D49; border-left-color: transparent; border-top-color: transparent; border-bottom-color: transparent; left: -20px; top: 10px; position: absolute; }
+.slide-menu .menu .sub_menu span:hover{  color:#1296db;  }
+.slide-menu .menu a{ text-decoration: none; color: #fff;}
+.slide-menu .menu a.active:after{ transform: scaleX(1); }
 .slide-menu i{line-height: 80px; margin-right: 3px; }
-.slide-menu span a:after{ content: ""; width: 100%; height: 4px; background: rgb(255,255,255); position: absolute; bottom: -30%; left: 0; transform: scaleX(0); transition: .3s ease;}
+.slide-menu div a:after{ content: ""; width: 100%; height: 4px; background: rgb(255,255,255); position: absolute; bottom: -30%; left: 0; transform: scaleX(0); transition: .3s ease;}
 
 
 .slide-menu .user{ display: block; position: absolute; padding: 5px; width: 30px; right: 5%; top:20px; height: 30px; background: #fff; border-radius: 50%; }
